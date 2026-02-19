@@ -165,31 +165,15 @@
             overflow: hidden;
             margin-top: 80px;
         }
-               .hero-background {
-    position: absolute;
-    inset: 0;
-    background-image: url('Clube.png');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    z-index: 0;
-}
 
-/* Remove qualquer pseudo-elemento que possa estar a causar conflito */
-.hero-background::before,
-.hero-background::after {
-    display: none;
-}
-        
-        
-
-        
-
-  
-     
-        @keyframes pulseGlow {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
+        .hero-background {
+            position: absolute;
+            inset: 0;
+            background-image: url('Clube.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            z-index: 0;
         }
 
         .hero-content {
@@ -2006,6 +1990,26 @@
         <span class="player-position">Médio</span>
     </div>
 </div>
+
+<!-- NOVO JOGADOR: Manucho Buanrai -->
+<div class="player-card" data-player="18">
+    <div class="player-photo" style="background-image: url('logo.png');"></div>
+    <div class="player-info">
+        <div class="player-number">24</div>
+        <h3 class="player-name">Manucho Buanrai</h3>
+        <span class="player-position">Médio defensivo</span>
+    </div>
+</div>
+
+<!-- NOVO JOGADOR: Quito Americo -->
+<div class="player-card" data-player="19">
+    <div class="player-photo" style="background-image: url('logo.png');"></div>
+    <div class="player-info">
+        <div class="player-number">15</div>
+        <h3 class="player-name">Quito Americo</h3>
+        <span class="player-position">Médio</span>
+    </div>
+</div>
                 </div>
                 <button class="scroll-btn right" id="playersScrollRight">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2518,7 +2522,7 @@
             12: {
                 name: "Paulo Oraibo",
                 position: "Extremo Direito",
-                number: "17",
+                number: "30",
                 bio: "Jovem extremo, rápido e com boa técnica. Aparece bem nas diagonais.",
                 age: 19,
                 nationality: "Moçambicana",
@@ -2562,9 +2566,8 @@
     foot: "Direito",
     stats: { games: 18, goals: 1, assists: 3, minutes: 1450 },
     photo: "Mussa.jpg"
-},
-
-16: {
+            },
+            16: {
     name: "Ernesto Eusebio",
     position: "Ponta",
     number: "99",
@@ -2575,9 +2578,8 @@
     foot: "Direito",
     stats: { games: 20, goals: 8, assists: 4, minutes: 1600 },
     photo: "Ernesto.jpg"
-},
-
-17: {
+            },
+            17: {
     name: "Bruno Sacara",
     position: "Médio",
     number: "21",
@@ -2588,7 +2590,33 @@
     foot: "Direito",
     stats: { games: 22, goals: 3, assists: 6, minutes: 1750 },
     photo: "Bruno.jpg"
-                }
+            },
+            // NOVO JOGADOR: Manucho Buanrai
+            18: {
+                name: "Manucho Buanrai",
+                position: "Médio defensivo",
+                number: "24",
+                bio: "Jovem médio defensivo com grande capacidade de desarme e visão de jogo. Promete ser uma peça importante no meio-campo.",
+                age: 17,
+                nationality: "Moçambicana",
+                height: "1,76 m",
+                foot: "Direito",
+                stats: { games: 0, goals: 0, assists: 0, minutes: 0 },
+                photo: "logo.png"
+            },
+            // NOVO JOGADOR: Quito Americo
+            19: {
+                name: "Quito Americo",
+                position: "Médio",
+                number: "15",
+                bio: "Médio versátil, capaz de jogar tanto na contenção como na criação. Tem boa técnica e passe.",
+                age: 17,
+                nationality: "Moçambicana",
+                height: "1,75 m",
+                foot: "Direito",
+                stats: { games: 0, goals: 0, assists: 0, minutes: 0 },
+                photo: "logo.png"
+            }
         };
 
         // ========== DADOS DAS NOTÍCIAS ==========
@@ -2621,37 +2649,21 @@
                 image: "IMG-20260214-WA0037.jpg",
                 content: "<p>Comemoramos cinco anos de história, crescimento e impacto positivo na comunidade. Obrigado a todos que fazem parte desta jornada.</p><p>A celebração contou com a presença de fundadores, atletas, familiares e amigos. Foram momentos de muita emoção e reconhecimento do trabalho colectivo.</p>"
             },
-        5: {
-    title: "Treinador Janfar Elogia Jovens da Equipa",
-    date: "18 Fevereiro 2026",
-    category: "Entrevista",
-    image: "janfar.jpg", // substitui pelo caminho correto da imagem
-    content: `
-        <p>O treinador Janfar partilhou a sua satisfação pelo desempenho da equipa e destacou o esforço dos jovens atletas.</p>
-
-        <blockquote>
-            🗣️ "Vencer no nosso último jogo é bom, mas é ainda melhor quando se trata de uma vitória como esta, que de repente nos coloca numa final. Estou feliz pelo que os jovens fizeram hoje, principalmente sabendo que cerca de 70% estavam de jejum."
-        </blockquote>
-
-        <blockquote>
-            🗣️ "Estamos felizes pelo resultado e agora vamos esperar o que acontece amanhã. Acho normal quando se trata de uma equipa júnior como a nossa, competindo com equipas seniores e altamente reforçadas."
-        </blockquote>
-
-        <blockquote>
-            🗣️ "A qualidade dos meus meninos é muito boa. Precisamos melhorar, sim, mas cada ano é uma oportunidade de crescimento."
-        </blockquote>
-
-        <blockquote>
-            🗣️ "É necessário avaliar cada erro cometido em cada jogo para corrigirmos e refazermos nas próximas ocasiões."
-        </blockquote>
-
-        <blockquote>
-            🗣️ "Neste momento, o que podemos fazer é ouvir e aguardar a decisão do presidente da equipa para liberarmos o material. Desejamos um bom ano a todos os jogadores e que haja sempre competição saudável."
-        </blockquote>
-
-        <p>Estas declarações refletem o compromisso da equipa com o crescimento dos jovens atletas e a valorização do esforço colectivo.</p>
-    `
-};
+            5: {
+                title: "Treinador Janfar Elogia Jovens da Equipa",
+                date: "18 Fevereiro 2026",
+                category: "Entrevista",
+                image: "janfar.jpg",
+                content: `
+                    <p>O treinador Janfar partilhou a sua satisfação pelo desempenho da equipa e destacou o esforço dos jovens atletas.</p>
+                    <blockquote>🗣️ "Vencer no nosso último jogo é bom, mas é ainda melhor quando se trata de uma vitória como esta, que de repente nos coloca numa final. Estou feliz pelo que os jovens fizeram hoje, principalmente sabendo que cerca de 70% estavam de jejum."</blockquote>
+                    <blockquote>🗣️ "Estamos felizes pelo resultado e agora vamos esperar o que acontece amanhã. Acho normal quando se trata de uma equipa júnior como a nossa, competindo com equipas seniores e altamente reforçadas."</blockquote>
+                    <blockquote>🗣️ "A qualidade dos meus meninos é muito boa. Precisamos melhorar, sim, mas cada ano é uma oportunidade de crescimento."</blockquote>
+                    <blockquote>🗣️ "É necessário avaliar cada erro cometido em cada jogo para corrigirmos e refazermos nas próximas ocasiões."</blockquote>
+                    <blockquote>🗣️ "Neste momento, o que podemos fazer é ouvir e aguardar a decisão do presidente da equipa para liberarmos o material. Desejamos um bom ano a todos os jogadores e que haja sempre competição saudável."</blockquote>
+                    <p>Estas declarações refletem o compromisso da equipa com o crescimento dos jovens atletas e a valorização do esforço colectivo.</p>
+                `
+            }
         };
 
         // ========== FUNÇÕES DO MODAL DE JOGADOR ==========
@@ -2660,7 +2672,7 @@
         const playerPrev = document.getElementById('playerPrev');
         const playerNext = document.getElementById('playerNext');
         let currentPlayerId = 1;
-        const totalPlayers = Object.keys(playersData).length;
+        const totalPlayers = Object.keys(playersData).length; // Agora 19
 
         function openPlayerModal(playerId) {
             currentPlayerId = parseInt(playerId);
