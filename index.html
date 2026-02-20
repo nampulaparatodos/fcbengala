@@ -584,6 +584,11 @@
             background: rgba(102, 102, 102, 0.1);
             color: var(--text-light);
         }
+        .status-final {
+            background: gold;
+            color: black;
+            font-weight: 800;
+        }
         .event-meta {
             display: flex;
             gap: var(--spacing-md);
@@ -605,6 +610,88 @@
         .event-description {
             color: var(--text-secondary);
             line-height: 1.7;
+        }
+        /* Estilos específicos para o evento da final */
+        .match-title {
+            font-size: 2rem;
+            margin: 0.5rem 0;
+            color: var(--primary-dark);
+            font-weight: 900;
+        }
+        .countdown-box {
+            background: #f0f8ff;
+            padding: 1rem;
+            border-radius: 12px;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        .coach-preview {
+            background: #eef2f5;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1rem;
+            border-left: 5px solid var(--accent);
+        }
+        .coach-preview h4 {
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        /* ===== DEPOIMENTOS ===== */
+        .testimonials {
+            padding: var(--spacing-xl) 0;
+            background: white;
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+        }
+        .testimonial-card {
+            background: var(--background-light);
+            padding: var(--spacing-lg);
+            border-radius: 16px;
+            position: relative;
+            transition: var(--transition);
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--shadow);
+        }
+        .testimonial-quote {
+            font-size: 2rem;
+            color: var(--accent);
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-secondary);
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-size: cover;
+            background-color: var(--accent-light);
+            border: 2px solid var(--accent);
+        }
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+        }
+        .author-info p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin: 0;
         }
 
         /* ===== JOGADORES ===== */
@@ -1356,6 +1443,44 @@
             opacity: 0.7;
         }
 
+        /* ===== BANNER FINAL ===== */
+        .final-banner {
+            background: linear-gradient(135deg, #000000, #1a1a1a, #c9a227);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .final-banner-content h1 {
+            font-size: 38px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        .final-banner-content h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+        .final-banner-content p {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .final-highlight {
+            background: gold;
+            color: black;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-weight: bold;
+            display: inline-block;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+
         /* ===== RESPONSIVIDADE ===== */
         @media (max-width: 1024px) {
             .about-grid,
@@ -1456,59 +1581,7 @@
             z-index: 999;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
-    
     </style>
-    .final-banner {
-    background: linear-gradient(135deg, #000000, #1a1a1a, #c9a227);
-    color: white;
-    text-align: center;
-    padding: 60px 20px;
-    position: relative;
-    overflow: hidden;
-}
-
-.final-banner-content h1 {
-    font-size: 38px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-}
-
-.final-banner-content h2 {
-    font-size: 30px;
-    margin-bottom: 10px;
-}
-
-.final-banner-content p {
-    font-size: 18px;
-    margin-bottom: 15px;
-}
-
-.final-highlight {
-    background: gold;
-    color: black;
-    padding: 8px 18px;
-    border-radius: 25px;
-    font-weight: bold;
-    display: inline-block;
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-    100% { transform: scale(1); }
-}
-    <section class="final-banner">
-    <div class="final-banner-content">
-        <h1>🏆 HOJE É DIA DE FINAL!</h1>
-        <h2>Bengala 🆚 Trovoada FC</h2>
-        <p>Grande Final da Super Taça • 14:45 • Campo 25 de Setembro</p>
-        <span class="final-highlight">Vamos em busca do troféu! 💛🔥</span>
-    </div>
-</section>
-
-    
 </head>
 <body>
     <!-- Navegação -->
@@ -1529,6 +1602,7 @@
                 <li><a href="#jogadores" class="nav-link">Jogadores</a></li>
                 <li><a href="#galeria" class="nav-link">Galeria</a></li>
                 <li><a href="#noticias" class="nav-link">Notícias</a></li>
+                <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
                 <li><a href="#contacto" class="nav-link">Contacto</a></li>
             </ul>
         </div>
@@ -1540,7 +1614,7 @@
         <div class="hero-content">
             <div class="hero-text">
                 <h1 class="hero-title">FC BENGALA</h1>
-                <b><p class="hero-subtitle" style="color: #ffffff; size: 0cqmax;">Construindo comunidade através do desporto, cultura e inovação</p></b>
+                <b><p class="hero-subtitle" style="color: #ffffff;">Construindo comunidade através do desporto, cultura e inovação</p></b>
                 <div class="hero-cta">
                     <a href="#sobre" class="btn btn-primary">Conhecer o Clube</a>
                 </div>
@@ -1548,6 +1622,16 @@
         </div>
         <div class="scroll-indicator">
             <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Banner Final (destaque) -->
+    <section class="final-banner">
+        <div class="final-banner-content">
+            <h1>🏆 HOJE É DIA DE FINAL!</h1>
+            <h2>Bengala 🆚 Trovoada FC</h2>
+            <p>Grande Final da Super Taça • 14:45 • Campo 25 de Setembro</p>
+            <span class="final-highlight">Vamos em busca do troféu! 💛🔥</span>
         </div>
     </section>
 
@@ -1714,45 +1798,47 @@
                 <h2 class="section-title">Actividades e Eventos</h2>
             </div>
             <div class="events-list">
-                <!-- (itens de evento mantidos como no original) -->
-                <article class="event-item">
-    <div class="event-date-badge">
-        <span class="event-day">19</span>
-        <span class="event-month">FEV</span>
-    </div>
-    <div class="event-details">
-        <div class="event-header">
-            <h3>Bengala vs OJM</h3>
-            <span class="event-status status-upcoming">Meias Finais Super Taça</span>
-        </div>
-        <div class="event-meta">
-            <span class="event-location">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                    <circle cx="12" cy="10" r="3"/>
-                </svg>
-                Campo 25 de Setembro
-            </span>
-            <span class="event-time">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"/>
-                    <polyline points="12 6 12 12 16 14"/>
-                </svg>
-                13:45
-            </span>
-        </div>
-        <p class="event-description">Partida emocionante das meias finais da Super Taça. Venha apoiar o seu time e participar nesta grande jornada desportiva!</p>
+                <!-- EVENTO ESPECIAL: FINAL DA SUPER TAÇA (DESTAQUE) -->
+                <article class="event-item final-match">
+                    <div class="event-date-badge final-badge">
+                        <span class="event-day">20</span>
+                        <span class="event-month">FEV</span>
+                    </div>
+                    <div class="event-details">
+                        <div class="event-header">
+                            <h3>🏆 FINAL DA SUPER TAÇA</h3>
+                            <span class="event-status status-final">Grande Final</span>
+                        </div>
+                        <h2 class="match-title">Bengala 🆚 Trovoada FC</h2>
+                        <div class="event-meta">
+                            <span class="event-location">
+                                📍 Campo 25 de Setembro
+                            </span>
+                            <span class="event-time">
+                                🕒 14:45
+                            </span>
+                        </div>
+                        <p class="event-description">
+                            As duas melhores equipas da vila disputam o troféu máximo da Super Taça.
+                            Um jogo decisivo que promete emoção do início ao fim.
+                        </p>
+                        <!-- Contador regressivo -->
+                        <div class="countdown-box">
+                            <h4>⏳ Contagem Regressiva</h4>
+                            <div id="countdown">A preparar o grande jogo...</div>
+                        </div>
+                        <!-- Declarações -->
+                        <div class="coach-preview">
+                            <h4>🎙️ Declarações do Treinador – Janfar</h4>
+                            <p>“São duas equipas, supostamente as melhores da vila. Estou muito entusiasmado em terminar bem nesta final.”</p>
+                            <p>“Eles têm um pouco do nosso estilo de jogo, mas no Tiki-Taka somos superiores.”</p>
+                            <p>“94% dos nossos jogadores estão em jejum, mas nunca tivemos problemas. Chegámos à final com mérito.”</p>
+                            <p>“É um jogo complicado, mas totalmente possível de vencer. Chegou a hora de começar o ano com um troféu.”</p>
+                        </div>
+                    </div>
+                </article>
 
-        <!-- Antevisão do jogo -->
-        <div class="event-preview">
-            <h4>Antevisão do Jogo</h4>
-            <p>Janfar 🗣️: Vejo o jogo como uma chave de sucesso, que vença o melhor. Eles têm uma equipa mista, jogadores fortes e inteligentes e outros deste distrito. Jogam um futebol minimamente bonito.</p>
-            <p>🗣️ Minha relação com OJM é positiva; eles estão jogando bem nos últimos meses.</p>
-            <p>🗣️ Bem, acho que há tempo de chegar à final, mas se não conseguirmos chegar, é importante entender que os meninos jogaram muito no ano passado e chegou a hora de começar com um troféu. Seria bom que a nossa direção encare seriamente as coisas neste ano.</p>
-            <p>🗣️ Este é um jogo complicado, mas resolvível.</p>
-        </div>
-    </div>
-</article>
+                <!-- Outros eventos -->
                 <article class="event-item">
                     <div class="event-date-badge">
                         <span class="event-day">25</span>
@@ -1765,17 +1851,11 @@
                         </div>
                         <div class="event-meta">
                             <span class="event-location">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                    <circle cx="12" cy="10" r="3"/>
-                                </svg>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                                 Sede do FC BENGALA, Ponte-Massingirine
                             </span>
                             <span class="event-time">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <polyline points="12 6 12 12 16 14"/>
-                                </svg>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                                 14:00 - 17:00
                             </span>
                         </div>
@@ -1794,17 +1874,11 @@
                         </div>
                         <div class="event-meta">
                             <span class="event-location">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                    <circle cx="12" cy="10" r="3"/>
-                                </svg>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                                 Bairro Napela
                             </span>
                             <span class="event-time">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <polyline points="12 6 12 12 16 14"/>
-                                </svg>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                                 09:00 - 13:00
                             </span>
                         </div>
@@ -1823,17 +1897,11 @@
                         </div>
                         <div class="event-meta">
                             <span class="event-location">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                    <circle cx="12" cy="10" r="3"/>
-                                </svg>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                                 Campo 25 de Setembro
                             </span>
                             <span class="event-time">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <polyline points="12 6 12 12 16 14"/>
-                                </svg>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                                 08:00 - 18:00
                             </span>
                         </div>
@@ -1852,17 +1920,11 @@
                         </div>
                         <div class="event-meta">
                             <span class="event-location">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                    <circle cx="12" cy="10" r="3"/>
-                                </svg>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
                                 Sede do Clube, Ponte
                             </span>
                             <span class="event-time">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <polyline points="12 6 12 12 16 14"/>
-                                </svg>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                                 19:00 - 23:00
                             </span>
                         </div>
@@ -1887,6 +1949,7 @@
                     </svg>
                 </button>
                 <div class="players-grid" id="playersGrid">
+                    <!-- Lista completa de jogadores (mantida do original) -->
                     <!-- Player 1 -->
                     <div class="player-card" data-player="1">
                         <div class="player-photo" style="background-image: url('AldeLuciano.png');"></div>
@@ -2014,54 +2077,50 @@
                         </div>
                     </div>
                     <!-- Player 15 -->
-<div class="player-card" data-player="15">
-    <div class="player-photo" style="background-image: url('Mussa.jpg');"></div>
-    <div class="player-info">
-        <div class="player-number">2</div>
-        <h3 class="player-name">Mussa Artur</h3>
-        <span class="player-position">Defesa lateral</span>
-    </div>
-</div>
-
-<!-- Player 16 -->
-<div class="player-card" data-player="16">
-    <div class="player-photo" style="background-image: url('Ernesto.jpg');"></div>
-    <div class="player-info">
-        <div class="player-number">99</div>
-        <h3 class="player-name">Ernesto Eusebio</h3>
-        <span class="player-position">Ponta</span>
-    </div>
-</div>
-
-<!-- Player 17 -->
-<div class="player-card" data-player="17">
-    <div class="player-photo" style="background-image: url('Bruno.jpg');"></div>
-    <div class="player-info">
-        <div class="player-number">21</div>
-        <h3 class="player-name">Bruno Sacara</h3>
-        <span class="player-position">Médio</span>
-    </div>
-</div>
-
-<!-- NOVO JOGADOR: Manucho Buanrai -->
-<div class="player-card" data-player="18">
-    <div class="player-photo" style="background-image: url('logo.png');"></div>
-    <div class="player-info">
-        <div class="player-number">24</div>
-        <h3 class="player-name">Manucho Buanrai</h3>
-        <span class="player-position">Médio defensivo</span>
-    </div>
-</div>
-
-<!-- NOVO JOGADOR: Quito Americo -->
-<div class="player-card" data-player="19">
-    <div class="player-photo" style="background-image: url('logo.png');"></div>
-    <div class="player-info">
-        <div class="player-number">15</div>
-        <h3 class="player-name">Quito Americo</h3>
-        <span class="player-position">Médio</span>
-    </div>
-</div>
+                    <div class="player-card" data-player="15">
+                        <div class="player-photo" style="background-image: url('Mussa.jpg');"></div>
+                        <div class="player-info">
+                            <div class="player-number">2</div>
+                            <h3 class="player-name">Mussa Artur</h3>
+                            <span class="player-position">Defesa lateral</span>
+                        </div>
+                    </div>
+                    <!-- Player 16 -->
+                    <div class="player-card" data-player="16">
+                        <div class="player-photo" style="background-image: url('Ernesto.jpg');"></div>
+                        <div class="player-info">
+                            <div class="player-number">99</div>
+                            <h3 class="player-name">Ernesto Eusebio</h3>
+                            <span class="player-position">Ponta</span>
+                        </div>
+                    </div>
+                    <!-- Player 17 -->
+                    <div class="player-card" data-player="17">
+                        <div class="player-photo" style="background-image: url('Bruno.jpg');"></div>
+                        <div class="player-info">
+                            <div class="player-number">21</div>
+                            <h3 class="player-name">Bruno Sacara</h3>
+                            <span class="player-position">Médio</span>
+                        </div>
+                    </div>
+                    <!-- NOVO JOGADOR: Manucho Buanrai -->
+                    <div class="player-card" data-player="18">
+                        <div class="player-photo" style="background-image: url('logo.png');"></div>
+                        <div class="player-info">
+                            <div class="player-number">24</div>
+                            <h3 class="player-name">Manucho Buanrai</h3>
+                            <span class="player-position">Médio defensivo</span>
+                        </div>
+                    </div>
+                    <!-- NOVO JOGADOR: Quito Americo -->
+                    <div class="player-card" data-player="19">
+                        <div class="player-photo" style="background-image: url('logo.png');"></div>
+                        <div class="player-info">
+                            <div class="player-number">15</div>
+                            <h3 class="player-name">Quito Americo</h3>
+                            <span class="player-position">Médio</span>
+                        </div>
+                    </div>
                 </div>
                 <button class="scroll-btn right" id="playersScrollRight">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -2072,7 +2131,7 @@
         </div>
     </section>
 
-    <!-- Modal Jogador -->
+    <!-- Modal Jogador (mantido igual) -->
     <div class="player-modal" id="playerModal">
         <div class="player-modal-overlay"></div>
         <div class="player-modal-content">
@@ -2149,6 +2208,62 @@
         </div>
     </div>
 
+    <!-- DEPOIMENTOS (NOVA SEÇÃO) -->
+    <section id="depoimentos" class="testimonials">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-label">A voz de quem vive o clube</span>
+                <h2 class="section-title">Depoimentos</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">“</div>
+                    <p class="testimonial-text">“Jogar no Bengala é mais que futebol. É aprender a ser homem, a respeitar e a lutar pelos sonhos. O clube é a minha segunda família.”</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background-image: url('AldeLuciano.png');"></div>
+                        <div class="author-info">
+                            <h4>Alde Luciano</h4>
+                            <p>Jogador (Médio)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">“</div>
+                    <p class="testimonial-text">“Cheguei aqui com 14 anos e hoje sou treinador. O Bengala acredita nos jovens e dá oportunidades. Orgulho de fazer parte desta história.”</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background-image: url('Treinador.png');"></div>
+                        <div class="author-info">
+                            <h4>Janfar Mustafa</h4>
+                            <p>Treinador Principal</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">“</div>
+                    <p class="testimonial-text">“O trabalho social que o clube desenvolve na comunidade é incrível. Ver as crianças com material escolar e sorrisos no rosto não tem preço.”</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background-image: url('desportivo.jpeg');"></div>
+                        <div class="author-info">
+                            <h4>Ramadane Buana Chale</h4>
+                            <p>Director Desportivo</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">“</div>
+                    <p class="testimonial-text">“Meu filho evoluiu muito desde que entrou no Bengala. Não só como jogador, mas como pessoa. A disciplina e o apoio que recebe aqui são fantásticos.”</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background-image: url('logo.png');"></div>
+                        <div class="author-info">
+                            <h4>Maria Tome</h4>
+                            <p>Mãe de atleta</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Galeria -->
     <section id="galeria" class="gallery">
         <div class="container">
@@ -2224,19 +2339,19 @@
             </div>
             <div class="news-grid">
                 <article class="news-card" data-news="5">
-    <div class="news-image" style="background-image: url('logo.png');"></div>
-    <div class="news-content">
-        <span class="news-date">18 Fevereiro 2026</span>
-        <span class="news-category">Resultado</span>
-        <h3>Vitória Importante do FC Bengala</h3>
-        <p><strong>Fim da partida!</strong><br><br>
-        FC Bengala 2 - 1 OJM<br><br>
-        ⚽ Ernesto (37')<br>
-        ⚽ Bissaka (47')<br>
-        ⚽ Halde (64')<br><br>
-        Uma vitória importante que reforça a nossa posição na competição e demonstra a determinação da equipa.</p>
-        <a href="#" class="news-link">Ler mais →</a>
-    </div>
+                    <div class="news-image" style="background-image: url('logo.png');"></div>
+                    <div class="news-content">
+                        <span class="news-date">18 Fevereiro 2026</span>
+                        <span class="news-category">Resultado</span>
+                        <h3>Vitória Importante do FC Bengala</h3>
+                        <p><strong>Fim da partida!</strong><br><br>
+                        FC Bengala 2 - 1 OJM<br><br>
+                        ⚽ Ernesto (37')<br>
+                        ⚽ Bissaka (47')<br>
+                        ⚽ Halde (64')<br><br>
+                        Uma vitória importante que reforça a nossa posição na competição e demonstra a determinação da equipa.</p>
+                        <a href="#" class="news-link">Ler mais →</a>
+                    </div>
                 </article>
                 <article class="news-card featured" data-news="1">
                     <div class="news-image" style="background-image: url('material.jpeg');"></div>
@@ -2282,7 +2397,7 @@
         </div>
     </section>
 
-    <!-- Modal Notícia -->
+    <!-- Modal Notícia (mantido) -->
     <div class="news-modal" id="newsModal">
         <div class="news-modal-overlay"></div>
         <div class="news-modal-content">
@@ -2347,33 +2462,27 @@
                         <h3>Redes Sociais</h3>
                         <div class="social-icons">
                             <a href="#" aria-label="Facebook">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                             </a>
                             <a href="#" aria-label="Instagram">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                             </a>
                             <a href="#" aria-label="Twitter">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                                </svg>
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
                             </a>
                         </div>
                     </div>
                 </div>
                 <div class="contact-map">
-    <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d15563.875281901265!2d40.622389!3d-14.545563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x18b8550f5d4b5c77%3A0xd6382ef8ba21adf!2sEscola%20de%20futebol%20bengala%2C%20FJ3J%2BFMQ%2C%20Nacala%20Velha!3m2!1d-14.5462823!2d40.6317242!4m5!1s0x18b8570f561346a5%3A0x65a6a9045994f712!2sNacala-a-Velha!3m2!1d-14.545563!2d40.622389!5e0!3m2!1spt-PT!2smz!4v1709678900000!5m2!1spt-PT!2smz" 
-        width="100%" 
-        height="450" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy">
-    </iframe>
-</div>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d15563.875281901265!2d40.622389!3d-14.545563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x18b8550f5d4b5c77%3A0xd6382ef8ba21adf!2sEscola%20de%20futebol%20bengala%2C%20FJ3J%2BFMQ%2C%20Nacala%20Velha!3m2!1d-14.5462823!2d40.6317242!4m5!1s0x18b8570f561346a5%3A0x65a6a9045994f712!2sNacala-a-Velha!3m2!1d-14.545563!2d40.622389!5e0!3m2!1spt-PT!2smz!4v1709678900000!5m2!1spt-PT!2smz" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
             </div>
         </div>
     </section>
@@ -2400,6 +2509,7 @@
                         <li><a href="#jogadores">Jogadores</a></li>
                         <li><a href="#galeria">Galeria</a></li>
                         <li><a href="#noticias">Notícias</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </div>
@@ -2608,42 +2718,41 @@
                 photo: "valentim.jpeg"
             },
             15: {
-    name: "Mussa Artur",
-    position: "Defesa Lateral",
-    number: "2",
-    bio: "Defesa consistente, forte nos duelos e com boa capacidade de apoiar o ataque pelas alas.",
-    age: 14,
-    nationality: "Moçambicana",
-    height: "1,78 m",
-    foot: "Direito",
-    stats: { games: 18, goals: 1, assists: 3, minutes: 1450 },
-    photo: "Mussa.jpg"
+                name: "Mussa Artur",
+                position: "Defesa Lateral",
+                number: "2",
+                bio: "Defesa consistente, forte nos duelos e com boa capacidade de apoiar o ataque pelas alas.",
+                age: 14,
+                nationality: "Moçambicana",
+                height: "1,78 m",
+                foot: "Direito",
+                stats: { games: 18, goals: 1, assists: 3, minutes: 1450 },
+                photo: "Mussa.jpg"
             },
             16: {
-    name: "Ernesto Eusebio",
-    position: "Ponta",
-    number: "99",
-    bio: "Avançado rápido e oportunista, destaca-se pela movimentação inteligente e faro de golo.",
-    age: 17,
-    nationality: "Moçambicana",
-    height: "1,80 m",
-    foot: "Direito",
-    stats: { games: 20, goals: 8, assists: 4, minutes: 1600 },
-    photo: "Ernesto.jpg"
+                name: "Ernesto Eusebio",
+                position: "Ponta",
+                number: "99",
+                bio: "Avançado rápido e oportunista, destaca-se pela movimentação inteligente e faro de golo.",
+                age: 17,
+                nationality: "Moçambicana",
+                height: "1,80 m",
+                foot: "Direito",
+                stats: { games: 20, goals: 8, assists: 4, minutes: 1600 },
+                photo: "Ernesto.jpg"
             },
             17: {
-    name: "Bruno Sacara",
-    position: "Médio",
-    number: "21",
-    bio: "Médio equilibrado, organiza o jogo e contribui tanto defensiva como ofensivamente.",
-    age: 16,
-    nationality: "Moçambicana",
-    height: "1,74 m",
-    foot: "Direito",
-    stats: { games: 22, goals: 3, assists: 6, minutes: 1750 },
-    photo: "Bruno.jpg"
+                name: "Bruno Sacara",
+                position: "Médio",
+                number: "21",
+                bio: "Médio equilibrado, organiza o jogo e contribui tanto defensiva como ofensivamente.",
+                age: 16,
+                nationality: "Moçambicana",
+                height: "1,74 m",
+                foot: "Direito",
+                stats: { games: 22, goals: 3, assists: 6, minutes: 1750 },
+                photo: "Bruno.jpg"
             },
-            // NOVO JOGADOR: Manucho Buanrai
             18: {
                 name: "Manucho Buanrai",
                 position: "Médio defensivo",
@@ -2656,7 +2765,6 @@
                 stats: { games: 0, goals: 0, assists: 0, minutes: 0 },
                 photo: "logo.png"
             },
-            // NOVO JOGADOR: Quito Americo
             19: {
                 name: "Quito Americo",
                 position: "Médio",
@@ -2724,7 +2832,7 @@
         const playerPrev = document.getElementById('playerPrev');
         const playerNext = document.getElementById('playerNext');
         let currentPlayerId = 1;
-        const totalPlayers = Object.keys(playersData).length; // Agora 19
+        const totalPlayers = Object.keys(playersData).length;
 
         function openPlayerModal(playerId) {
             currentPlayerId = parseInt(playerId);
@@ -2826,7 +2934,6 @@
 
         newsCards.forEach(card => {
             card.addEventListener('click', (e) => {
-                // Impedir que o clique no link "Ler mais" também dispare o card
                 if (e.target.classList.contains('news-link')) {
                     e.preventDefault();
                 }
@@ -2838,7 +2945,6 @@
         document.querySelectorAll('.news-link').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
-                // O card já trata a abertura, mas evitamos duplicidade
             });
         });
 
@@ -3008,12 +3114,33 @@
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        document.querySelectorAll('.activity-card, .event-item, .news-card, .mvv-card, .gallery-item').forEach(el => {
+        document.querySelectorAll('.activity-card, .event-item, .news-card, .mvv-card, .gallery-item, .testimonial-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
             observer.observe(el);
         });
+
+        // ========== CONTADOR REGRESSIVO PARA A FINAL ==========
+        function updateCountdown() {
+            const finalDate = new Date('February 20, 2026 14:45:00').getTime();
+            const now = new Date().getTime();
+            const distance = finalDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = "O jogo já começou! 🏆";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        setInterval(updateCountdown, 1000);
 
         // ========== BOTÃO VOLTAR AO TOPO ==========
         const scrollTopBtn = document.createElement('button');
@@ -3032,6 +3159,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             console.log('FC BENGALA website carregado com sucesso');
             highlightNavigation();
+            updateCountdown();
         });
     </script>
 </body>
