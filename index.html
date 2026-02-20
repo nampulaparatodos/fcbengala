@@ -2353,7 +2353,6 @@
             `;
             newsGrid.appendChild(card);
         }
-
         // ========== FUNÇÕES DO MODAL DE JOGADOR ==========
         const playerModal = document.getElementById('playerModal');
         const playerModalClose = document.getElementById('playerModalClose');
@@ -2377,14 +2376,26 @@
         function updatePlayerModal(playerId) {
             const p = playersData[playerId];
             if (!p) return;
+            
+            // Atualizar informações básicas
             document.querySelector('.player-modal-name').textContent = p.name;
             document.querySelector('.player-modal-position').textContent = p.position;
             document.querySelector('.player-modal-number').textContent = p.number;
             document.querySelector('.player-bio-text').textContent = p.bio;
-            document.querySelector('.player-age').textContent = p.age + ' anos';
-            document.querySelector('.player-nationality').textContent = p.nationality;
-            document.querySelector('.player-height').textContent = p.height;
-            document.querySelector('.player-foot').textContent = p.foot;
+            
+            // Atualizar foto
+            document.querySelector('.player-modal-photo').style.backgroundImage = `url('${p.photo}')`;
+            
+            // Atualizar detalhes
+            const detailsList = document.querySelector('.details-list');
+            detailsList.innerHTML = `
+                <div class="detail-item"><span class="detail-label">Idade:</span><span class="detail-value player-age">${p.age} anos</span></div>
+                <div class="detail-item"><span class="detail-label">Nacionalidade:</span><span class="detail-value player-nationality">${p.nationality}</span></div>
+                <div class="detail-item"><span class="detail-label">Altura:</span><span class="detail-value player-height">${p.height}</span></div>
+                <div class="detail-item"><span class="detail-label">Pé Preferido:</span><span class="detail-value player-foot">${p.foot}</span></div>
+            `;
+            
+            // Atualizar estatísticas
             const statsGrid = document.querySelector('.player-stats .stats-grid');
             statsGrid.innerHTML = `
                 <div class="stat-item"><span class="stat-value">${p.stats.games}</span><span class="stat-label">Jogos</span></div>
@@ -2392,34 +2403,47 @@
                 <div class="stat-item"><span class="stat-value">${p.stats.assists}</span><span class="stat-label">Assistências</span></div>
                 <div class="stat-item"><span class="stat-value">${p.stats.minutes}</span><span class="stat-label">Minutos</span></div>
             `;
-            document.querySelector('.player-modal-photo').style.backgroundImage = `url('${p.photo}')`;
         }
 
         function nextPlayer() {
             currentPlayerId = currentPlayerId >= totalPlayers ? 1 : currentPlayerId + 1;
             updatePlayerModal(currentPlayerId);
         }
+        
         function prevPlayer() {
             currentPlayerId = currentPlayerId <= 1 ? totalPlayers : currentPlayerId - 1;
             updatePlayerModal(currentPlayerId);
         }
 
+        // Adicionar evento de clique nos cards de jogador
         document.querySelectorAll('.player-card').forEach(card => {
-            card.addEventListener('click', () => openPlayerModal(card.dataset.player));
+            card.addEventListener('click', function() {
+                const playerId = this.getAttribute('data-player');
+                openPlayerModal(playerId);
+            });
         });
+
+        // Eventos do modal
         playerModalClose.addEventListener('click', closePlayerModal);
         playerNext.addEventListener('click', nextPlayer);
         playerPrev.addEventListener('click', prevPlayer);
+        
         playerModal.addEventListener('click', (e) => {
-            if (e.target.classList.contains('player-modal-overlay')) closePlayerModal();
+            if (e.target.classList.contains('player-modal-overlay')) {
+                closePlayerModal();
+            }
         });
+        
         document.addEventListener('keydown', (e) => {
             if (!playerModal.classList.contains('active')) return;
-            if (e.key === 'Escape') closePlayerModal();
-            else if (e.key === 'ArrowRight') nextPlayer();
-            else if (e.key === 'ArrowLeft') prevPlayer();
+            if (e.key === 'Escape') {
+                closePlayerModal();
+            } else if (e.key === 'ArrowRight') {
+                nextPlayer();
+            } else if (e.key === 'ArrowLeft') {
+                prevPlayer();
+            }
         });
-
         // ========== FUNÇÕES DO MODAL DE NOTÍCIAS ==========
         const newsModal = document.getElementById('newsModal');
         const newsModalClose = document.getElementById('newsModalClose');
