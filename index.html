@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta name="google-site-verification" content="9WdqmkTsfKU8Bp-x7Cb_tBaxqnyCovLGpY55BzdYHKE" />
-    <meta name="description" content="Site oficial da Escola de Futebol Bengala. Notícias, jogadores, eventos e atividades desportivas em Nampula." />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESCOLA DE FUTEBOL BENGALA</title>
+    <meta name="google-site-verification" content="9WdqmkTsfKU8Bp-x7Cb_tBaxqnyCovLGpY55BzdYHKE" />
+    <meta name="description" content="Site oficial da Escola de Futebol Bengala. Notícias, jogadores, eventos e atividades desportivas em Nampula." />
+    <title>Escola de Futebol Bengala</title>
+    <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700;900&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* ===== VARIÁVEIS E ESTILOS GLOBAIS ===== */
+        /* ===== VARIÁVEIS GLOBAIS ===== */
         :root {
             --primary: #ffffff;
             --primary-light: #f0f8ff;
@@ -25,19 +26,17 @@
             --border: #dddddd;
             --shadow: rgba(0, 0, 0, 0.1);
             --shadow-strong: rgba(0, 0, 0, 0.2);
-            
             --font-display: 'Bitter', serif;
             --font-body: 'Work Sans', sans-serif;
-            
             --spacing-xs: 0.5rem;
             --spacing-sm: 1rem;
             --spacing-md: 2rem;
             --spacing-lg: 4rem;
             --spacing-xl: 6rem;
-            
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        /* ===== RESET E BASE ===== */
         * {
             margin: 0;
             padding: 0;
@@ -79,213 +78,7 @@
             padding: 0 var(--spacing-md);
         }
 
-        /* ===== NAVEGAÇÃO ===== */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--border);
-            transition: var(--transition);
-        }
-
-        .navbar.scrolled { box-shadow: 0 4px 20px var(--shadow); }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 var(--spacing-md);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-
-        .nav-logo img { height: 60px; width: auto; }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: var(--spacing-md);
-            align-items: center;
-        }
-
-        .nav-link {
-            color: var(--text-primary);
-            font-weight: 500;
-            font-size: 0.95rem;
-            letter-spacing: 0.3px;
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: var(--transition);
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after { width: 100%; }
-
-        .nav-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        .nav-toggle span {
-            width: 25px;
-            height: 2px;
-            background: var(--primary-dark);
-            transition: var(--transition);
-        }
-
-        /* ===== HERO ===== */
-        .hero {
-            height: 100vh;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            margin-top: 80px;
-        }
-
-        .hero-background {
-            position: absolute;
-            inset: 0;
-            background-image: url('Clube.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            z-index: 0;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            color: white;
-            max-width: 900px;
-            padding: var(--spacing-md);
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hero-title {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 900;
-            margin-bottom: var(--spacing-sm);
-            letter-spacing: -2px;
-            text-transform: uppercase;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
-            font-weight: 300;
-            margin-bottom: var(--spacing-lg);
-            opacity: 0.9;
-        }
-
-        .hero-cta { animation: fadeInUp 1s ease-out 0.6s both; }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-        }
-
-        .scroll-line {
-            width: 2px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.3);
-            position: relative;
-            animation: scrollPulse 2s ease-in-out infinite;
-        }
-
-        .scroll-line::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 6px;
-            height: 6px;
-            background: white;
-            border-radius: 50%;
-            animation: scrollDot 2s ease-in-out infinite;
-        }
-
-        @keyframes scrollPulse {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
-        }
-
-        @keyframes scrollDot {
-            0% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(40px); }
-            100% { transform: translateX(-50%) translateY(0); }
-        }
-
-        /* ===== BOTÕES ===== */
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            font-weight: 600;
-            font-size: 1rem;
-            border-radius: 50px;
-            transition: var(--transition);
-            cursor: pointer;
-            border: 2px solid transparent;
-            text-align: center;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: var(--primary-dark);
-            border-color: var(--accent);
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-light);
-            border-color: var(--accent-light);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(106, 176, 222, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary-dark);
-            border-color: var(--primary-dark);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary-dark);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px var(--shadow);
-        }
-
-        /* ===== CABEÇALHOS DE SEÇÃO ===== */
+        /* ===== UTILITÁRIOS ===== */
         .section-header {
             margin-bottom: var(--spacing-lg);
         }
@@ -307,6 +100,185 @@
             color: var(--text-light);
             font-size: 1.1rem;
             margin-top: -0.5rem;
+        }
+
+        /* ===== NAVEGAÇÃO ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+        .navbar.scrolled { box-shadow: 0 4px 20px var(--shadow); }
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        .nav-logo img { height: 60px; width: auto; }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+        .nav-link {
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after { width: 100%; }
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        .nav-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--primary-dark);
+            transition: var(--transition);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 80px;
+        }
+        .hero-background {
+            position: absolute;
+            inset: 0;
+            background-image: url('assets/Clube.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            z-index: 0;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 900px;
+            padding: var(--spacing-md);
+            animation: fadeInUp 1s ease-out;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            margin-bottom: var(--spacing-sm);
+            letter-spacing: -2px;
+            text-transform: uppercase;
+        }
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            font-weight: 300;
+            margin-bottom: var(--spacing-lg);
+            opacity: 0.9;
+        }
+        .hero-cta { animation: fadeInUp 1s ease-out 0.6s both; }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+        .scroll-line {
+            width: 2px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.3);
+            position: relative;
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+        .scroll-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            animation: scrollDot 2s ease-in-out infinite;
+        }
+        @keyframes scrollPulse { 0%,100% { opacity:0.3; } 50% { opacity:1; } }
+        @keyframes scrollDot {
+            0% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(40px); }
+            100% { transform: translateX(-50%) translateY(0); }
+        }
+
+        /* ===== BOTÕES ===== */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-weight: 600;
+            font-size: 1rem;
+            border-radius: 50px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+            text-align: center;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary-dark);
+            border-color: var(--accent);
+        }
+        .btn-primary:hover {
+            background: var(--accent-light);
+            border-color: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(106, 176, 222, 0.3);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-dark);
+            border-color: var(--primary-dark);
+        }
+        .btn-secondary:hover {
+            background: var(--primary-dark);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px var(--shadow);
         }
 
         /* ===== ATIVIDADES RECENTES ===== */
@@ -404,8 +376,7 @@
             background-repeat: no-repeat;
             background-color: var(--accent-light);
         }
-
-        /* ===== MISSÃO, VISÃO, VALORES ===== */
+        /* MVV */
         .mvv-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -434,20 +405,8 @@
             margin-bottom: var(--spacing-md);
             color: var(--primary-dark);
         }
-        .mvv-icon svg {
-            width: 32px;
-            height: 32px;
-        }
-        .mvv-card h3 {
-            color: var(--primary-dark);
-            margin-bottom: var(--spacing-sm);
-        }
-        .mvv-card p {
-            color: var(--text-secondary);
-            margin-bottom: 0;
-        }
-
-        /* ===== EQUIPA ===== */
+        .mvv-icon svg { width: 32px; height: 32px; }
+        /* Equipa */
         .team-section { margin-bottom: var(--spacing-xl); }
         .subsection-title {
             font-size: 2rem;
@@ -479,8 +438,7 @@
             color: var(--text-secondary);
             font-size: 0.9rem;
         }
-
-        /* ===== ESTATUTOS ===== */
+        /* Estatutos */
         .statutes-section { margin-top: var(--spacing-lg); }
         .statutes-card {
             background: var(--background-light);
@@ -501,10 +459,7 @@
             color: var(--primary-dark);
             flex-shrink: 0;
         }
-        .statutes-icon svg {
-            width: 40px;
-            height: 40px;
-        }
+        .statutes-icon svg { width: 40px; height: 40px; }
         .statutes-content h3 {
             color: var(--primary-dark);
             margin-bottom: 0.5rem;
@@ -637,68 +592,228 @@
             color: var(--accent);
         }
 
-       <!-- ===== DEPOIMENTOS ===== -->
-<section id="depoimentos" class="testimonials">
-    <div class="container">
-        <div class="section-header centered">
-            <span class="section-label">Depoimentos</span>
-            <h2 class="section-title">O que dizem sobre o Bengala</h2>
-        </div>
-        <div class="testimonials-grid">
-            <!-- Depoimento 1 - Alde Luciano -->
-            <div class="testimonial-card">
-                <div class="testimonial-quote">“</div>
-                <p class="testimonial-text">“Jogar no Bengala é mais que futebol. É aprender a ser homem, a respeitar e a lutar pelos sonhos. O clube é a minha segunda família.”</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar" style="background-image: url('AldeLuciano.png');"></div>
-                    <div class="author-info">
-                        <h4>Alde Luciano</h4>
-                        <p>Jogador (Médio)</p>
-                    </div>
-                </div>
-            </div>
+        /* ===== DEPOIMENTOS ===== */
+        .testimonials {
+            padding: var(--spacing-xl) 0;
+            background: var(--background-light);
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+        }
+        .testimonial-card {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: 16px;
+            position: relative;
+            transition: var(--transition);
+            box-shadow: 0 4px 20px var(--shadow);
+            height: auto;
+            overflow: visible;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px var(--shadow-strong);
+        }
+        .testimonial-quote {
+            font-size: 3rem;
+            color: var(--accent);
+            opacity: 0.2;
+            position: absolute;
+            top: 0;
+            right: 20px;
+            font-family: serif;
+        }
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: var(--spacing-md);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            word-break: break-word;
+            white-space: normal;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            border-top: 1px solid var(--border);
+            padding-top: var(--spacing-sm);
+        }
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            background-color: var(--accent-light);
+            border: 2px solid var(--accent);
+            flex-shrink: 0;
+        }
+        .author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.2rem;
+            color: var(--primary-dark);
+        }
+        .author-info p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin: 0;
+        }
 
-            <!-- Depoimento 2 - Janfar Mustafa -->
-            <div class="testimonial-card">
-                <div class="testimonial-quote">“</div>
-                <p class="testimonial-text">“Cheguei aqui com 14 anos e hoje sou treinador. O Bengala acredita nos jovens e dá oportunidades. Orgulho de fazer parte desta história.”</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar" style="background-image: url('Treinador.png');"></div>
-                    <div class="author-info">
-                        <h4>Janfar Mustafa</h4>
-                        <p>Treinador Principal</p>
-                    </div>
-                </div>
-            </div>
+        /* ===== DECLARAÇÕES ===== */
+        .statements { padding: var(--spacing-xl) 0; }
+        .preview-card {
+            background: linear-gradient(145deg, #ffffff, #f5f9ff);
+            border-radius: 24px;
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: 0 8px 30px var(--shadow);
+        }
+        .preview-header {
+            margin-bottom: var(--spacing-md);
+        }
+        .preview-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary-dark);
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 0.5rem;
+        }
+        .preview-content {
+            display: grid;
+            grid-template-columns: 1fr 200px;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+        .coach-statement {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: flex-start;
+        }
+        .statement-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 3px solid var(--accent);
+        }
+        .statement-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .statement-bubble {
+            background: white;
+            padding: var(--spacing-md);
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+        .statement-bubble::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 20px;
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid white;
+        }
+        .statement-text {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+        .statement-meta {
+            font-size: 0.9rem;
+        }
+        .statement-meta strong { color: var(--primary-dark); }
+        .statement-meta span { color: var(--text-light); }
+        .preview-stats {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+        .preview-stats .stat {
+            text-align: center;
+        }
+        .preview-stats .stat-value {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: var(--accent);
+            display: block;
+        }
+        .preview-stats .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+        .statements-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-md);
+        }
+        .statement-card {
+            background: white;
+            border-radius: 16px;
+            padding: var(--spacing-lg);
+            box-shadow: 0 4px 20px var(--shadow);
+            border-left: 5px solid var(--accent);
+        }
+        .statement-card-header {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+        .statement-card-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            border: 3px solid var(--accent);
+        }
+        .statement-card-author h4 {
+            margin-bottom: 0.2rem;
+        }
+        .statement-card-author span {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        .statement-card-body {
+            margin-bottom: var(--spacing-md);
+        }
+        .interview-item {
+            margin-bottom: 1rem;
+        }
+        .interview-item p:first-child {
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        .interview-item p:last-child {
+            font-style: italic;
+            margin-left: 1rem;
+        }
+        .statement-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            border-top: 1px solid var(--border);
+            padding-top: var(--spacing-sm);
+        }
+        .statement-tag {
+            background: var(--background-light);
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+        }
 
-            <!-- Depoimento 3 - Ramadane Buana Chale -->
-            <div class="testimonial-card">
-                <div class="testimonial-quote">“</div>
-                <p class="testimonial-text">“O trabalho social que o clube desenvolve na comunidade é incrível. Ver as crianças com material escolar e sorrisos no rosto não tem preço.”</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar" style="background-image: url('desportivo.jpeg');"></div>
-                    <div class="author-info">
-                        <h4>Ramadane Buana Chale</h4>
-                        <p>Director Desportivo</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Depoimento 4 - Maria Tome (mãe de atleta) -->
-            <div class="testimonial-card">
-                <div class="testimonial-quote">“</div>
-                <p class="testimonial-text">“Meu filho evoluiu muito desde que entrou no Bengala. Não só como jogador, mas como pessoa. A disciplina e o apoio que recebe aqui são fantásticos.”</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar" style="background-image: url('logo.png');"></div>
-                    <div class="author-info">
-                        <h4>Maria Tome</h4>
-                        <p>Mãe de atleta</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
         /* ===== JOGADORES ===== */
         .players { padding: var(--spacing-xl) 0; position: relative; }
         .players-wrapper {
@@ -736,10 +851,7 @@
         }
         .scroll-btn.left { left: -20px; }
         .scroll-btn.right { right: -20px; }
-        .scroll-btn svg {
-            width: 24px;
-            height: 24px;
-        }
+        .scroll-btn svg { width: 24px; height: 24px; }
         @media (max-width: 768px) {
             .players-grid {
                 display: flex;
@@ -889,10 +1001,7 @@
         }
         .player-prev { left: -25px; }
         .player-next { right: -25px; }
-        .player-nav-btn svg {
-            width: 24px;
-            height: 24px;
-        }
+        .player-nav-btn svg { width: 24px; height: 24px; }
         .player-modal-body {
             display: grid;
             grid-template-columns: 1fr 2fr;
@@ -1004,13 +1113,8 @@
             background: var(--background-light);
             border-radius: 8px;
         }
-        .detail-label {
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-        .detail-value {
-            color: var(--text-secondary);
-        }
+        .detail-label { font-weight: 600; color: var(--text-primary); }
+        .detail-value { color: var(--text-secondary); }
 
         /* ===== GALERIA ===== */
         .gallery { padding: var(--spacing-xl) 0; position: relative; }
@@ -1066,11 +1170,7 @@
             transition: var(--transition);
         }
         .gallery-item:hover .gallery-overlay { opacity: 1; }
-        .gallery-title {
-            color: white;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
+        .gallery-title { color: white; font-weight: 600; font-size: 1.1rem; }
 
         /* ===== LIGHTBOX ===== */
         .lightbox {
@@ -1129,10 +1229,7 @@
         }
         .lightbox-prev { left: 2rem; }
         .lightbox-next { right: 2rem; }
-        .lightbox-nav-btn svg {
-            width: 28px;
-            height: 28px;
-        }
+        .lightbox-nav-btn svg { width: 28px; height: 28px; }
         .lightbox-content {
             position: relative;
             max-width: 90vw;
@@ -1327,10 +1424,7 @@
             color: var(--primary-dark);
             flex-shrink: 0;
         }
-        .contact-icon svg {
-            width: 24px;
-            height: 24px;
-        }
+        .contact-icon svg { width: 24px; height: 24px; }
         .contact-details h3 {
             color: var(--primary-dark);
             margin-bottom: 0.5rem;
@@ -1369,10 +1463,7 @@
             color: white;
             transform: translateY(-4px);
         }
-        .social-icons svg {
-            width: 24px;
-            height: 24px;
-        }
+        .social-icons svg { width: 24px; height: 24px; }
         .contact-map {
             border-radius: 16px;
             overflow: hidden;
@@ -1466,10 +1557,32 @@
             100% { transform: scale(1); }
         }
 
+        /* ===== BOTÃO VOLTAR AO TOPO ===== */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .scroll-to-top.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
         /* ===== RESPONSIVIDADE ===== */
         @media (max-width: 1024px) {
-            .about-grid,
-            .contact-grid {
+            .about-grid, .contact-grid, .preview-content {
                 grid-template-columns: 1fr;
             }
             .news-card.featured { grid-column: span 1; }
@@ -1484,20 +1597,12 @@
                 font-size: 2.5rem;
             }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .preview-content {
-                grid-template-columns: 1fr;
-            }
-            .preview-stats {
-                justify-content: center;
-            }
             .coach-statement {
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
             }
-            .statement-bubble::before {
-                display: none;
-            }
+            .statement-bubble::before { display: none; }
         }
 
         @media (max-width: 768px) {
@@ -1516,10 +1621,9 @@
             .nav-menu.active { left: 0; }
             .nav-toggle { display: flex; }
             .hero { margin-top: 80px; }
-            .activities-grid,
-            .mvv-grid,
-            .team-grid,
-            .news-grid { grid-template-columns: 1fr; }
+            .activities-grid, .mvv-grid, .team-grid, .news-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
             .event-item { flex-direction: column; }
             .event-date-badge { align-self: flex-start; }
             .event-header { flex-direction: column; }
@@ -1556,96 +1660,6 @@
             .hero-title { font-size: 2.5rem; }
             .section-title { font-size: 2rem; }
         }
-
-        /* ===== BOTÃO VOLTAR AO TOPO ===== */
-        .scroll-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--accent);
-            color: white;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            opacity: 0;
-            transition: opacity 0.3s, transform 0.3s;
-            z-index: 999;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        /* ===== ANIMAÇÕES ===== */
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        /* ===== DEPOIMENTOS ===== */
-.testimonials {
-    padding: var(--spacing-xl) 0;
-    background: var(--background-light);
-}
-.testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-md);
-}
-.testimonial-card {
-    background: white;
-    padding: var(--spacing-lg);
-    border-radius: 16px;
-    position: relative;
-    transition: var(--transition);
-    box-shadow: 0 4px 20px var(--shadow);
-    height: auto;                /* altura ajustável pelo conteúdo */
-    overflow: visible;           /* garante que nada seja cortado */
-}
-.testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px var(--shadow-strong);
-}
-.testimonial-quote {
-    font-size: 3rem;
-    color: var(--accent);
-    opacity: 0.2;
-    position: absolute;
-    top: 0;
-    right: 20px;
-    font-family: serif;
-}
-.testimonial-text {
-    font-style: italic;
-    margin-bottom: var(--spacing-md);
-    color: var(--text-secondary);
-    line-height: 1.7;
-    word-break: break-word;      /* quebra palavras longas se necessário */
-    white-space: normal;          /* garante quebra de linha */
-}
-.testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    border-top: 1px solid var(--border);
-    padding-top: var(--spacing-sm);
-}
-.author-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-size: cover;
-    background-position: center;
-    background-color: var(--accent-light);
-    border: 2px solid var(--accent);
-    flex-shrink: 0;
-}
-.author-info h4 {
-    font-size: 1.1rem;
-    margin-bottom: 0.2rem;
-    color: var(--primary-dark);
-}
-.author-info p {
-    font-size: 0.85rem;
-    color: var(--text-light);
-    margin: 0;
-}
     </style>
 </head>
 <body>
@@ -1653,9 +1667,9 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="logo.png" alt="FC BENGALA">
+                <img src="assets/logo.png" alt="FC Bengala logo">
             </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -1675,14 +1689,12 @@
 
     <!-- Hero -->
     <section id="inicio" class="hero">
-        <div class="hero-background"></div>
+        <div class="hero-background" role="img" aria-label="Equipa do FC Bengala em campo"></div>
         <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">FC BENGALA</h1>
-                <b><p class="hero-subtitle" style="color: #ffffff;">Construindo comunidade através do desporto, cultura e inovação</p></b>
-                <div class="hero-cta">
-                    <a href="#sobre" class="btn btn-primary">Conhecer o Clube</a>
-                </div>
+            <h1 class="hero-title">FC BENGALA</h1>
+            <p class="hero-subtitle" style="color: #ffffff;">Construindo comunidade através do desporto, cultura e inovação</p>
+            <div class="hero-cta">
+                <a href="#sobre" class="btn btn-primary">Conhecer o Clube</a>
             </div>
         </div>
         <div class="scroll-indicator">
@@ -1710,7 +1722,7 @@
             <div class="activities-grid">
                 <article class="activity-card">
                     <div class="activity-image">
-                        <div class="activity-placeholder" style="background-image: url('Torneio.jpg');"></div>
+                        <div class="activity-placeholder" style="background-image: url('assets/Torneio.jpg');" role="img" aria-label="Torneio de Futebol Comunitário"></div>
                         <span class="activity-badge">Concluído</span>
                     </div>
                     <div class="activity-content">
@@ -1721,7 +1733,7 @@
                 </article>
                 <article class="activity-card">
                     <div class="activity-image">
-                        <div class="activity-placeholder" style="background-image: url('https://cdn.vectorstock.com/i/thumb-large/41/50/workshop-icon-vector-4884150.jpg');"></div>
+                        <div class="activity-placeholder" style="background-image: url('assets/workshop-icon.jpg');" role="img" aria-label="Workshop"></div>
                         <span class="activity-badge badge-upcoming">Em Breve</span>
                     </div>
                     <div class="activity-content">
@@ -1732,7 +1744,7 @@
                 </article>
                 <article class="activity-card">
                     <div class="activity-image">
-                        <div class="activity-placeholder" style="background-image: url('logo.png');"></div>
+                        <div class="activity-placeholder" style="background-image: url('assets/logo.png');" role="img" aria-label="Acção Social"></div>
                         <span class="activity-badge badge-upcoming">Em Breve</span>
                     </div>
                     <div class="activity-content">
@@ -1758,7 +1770,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <div class="about-placeholder" style="background-image: url('grupo.jpg');"></div>
+                    <div class="about-placeholder" style="background-image: url('assets/grupo.jpg');" role="img" aria-label="Grupo de membros do clube"></div>
                 </div>
             </div>
 
@@ -1767,8 +1779,7 @@
                 <div class="mvv-card">
                     <div class="mvv-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
                         </svg>
                     </div>
                     <h3>Missão</h3>
@@ -1777,8 +1788,7 @@
                 <div class="mvv-card">
                     <div class="mvv-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 6v6l4 2"/>
+                            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
                         </svg>
                     </div>
                     <h3>Visão</h3>
@@ -1787,8 +1797,7 @@
                 <div class="mvv-card">
                     <div class="mvv-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                            <circle cx="12" cy="7" r="4"/>
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
                         </svg>
                     </div>
                     <h3>Valores</h3>
@@ -1801,32 +1810,32 @@
                 <h3 class="subsection-title">Directoria</h3>
                 <div class="team-grid">
                     <div class="team-member">
-                        <div class="team-photo" style="background-image: url('logo.png');"></div>
+                        <div class="team-photo" style="background-image: url('assets/logo.png');" role="img" aria-label="Mario Alberto"></div>
                         <h4>Mario Alberto</h4>
                         <span>Presidente</span>
                     </div>
                     <div class="team-member">
-                        <div class="team-photo" style="background-image: url('desportivo.jpeg');"></div>
+                        <div class="team-photo" style="background-image: url('assets/desportivo.jpeg');" role="img" aria-label="Ramadane Buana Chale"></div>
                         <h4>Ramadane Buana Chale</h4>
                         <span>Director Desportivo</span>
                     </div>
                     <div class="team-member">
-                        <div class="team-photo" style="background-image: url('director\ desportivo.jpeg');"></div>
+                        <div class="team-photo" style="background-image: url('assets/director\ desportivo.jpeg');" role="img" aria-label="Adamo Korea"></div>
                         <h4>Adamo Korea</h4>
                         <span>Director Administrativo</span>
                     </div>
                     <div class="team-member">
-                        <div class="team-photo" style="background-image: url('logo.png');"></div>
+                        <div class="team-photo" style="background-image: url('assets/logo.png');" role="img" aria-label="Quinho Americo Ferao"></div>
                         <h4>Quinho Americo Ferao</h4>
                         <span>Delegado</span>
                     </div>
                     <div class="team-member">
-                        <div class="team-photo" style="background-image: url('Treinador.png');"></div>
+                        <div class="team-photo" style="background-image: url('assets/Treinador.png');" role="img" aria-label="Janfar Mustafa"></div>
                         <h4>Janfar Mustafa</h4>
                         <span>Treinador Principal</span>
                     </div>
                     <div class="team-member">
-                        <div class="team-photo" style="background-image: url('IMG-20260216-WA0020.jpg');"></div>
+                        <div class="team-photo" style="background-image: url('assets/IMG-20260216-WA0020.jpg');" role="img" aria-label="Zito Carlitos Veloso"></div>
                         <h4>Zito Carlitos Veloso</h4>
                         <span>Treinador</span>
                     </div>
@@ -1840,15 +1849,14 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
                             <polyline points="14 2 14 8 20 8"/>
-                            <line x1="16" y1="13" x2="8" y2="13"/>
-                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
                             <polyline points="10 9 9 9 8 9"/>
                         </svg>
                     </div>
                     <div class="statutes-content">
                         <h3>Estatutos do Clube</h3>
                         <p>Consulte o documento completo com os estatutos oficiais do FC BENGALA</p>
-                        <a href="estatuto.pdf" class="btn btn-secondary" download>Download PDF</a>
+                        <a href="assets/estatuto.pdf" class="btn btn-secondary" download>Download PDF</a>
                     </div>
                 </div>
             </div>
@@ -1863,7 +1871,7 @@
                 <h2 class="section-title">Actividades e Eventos</h2>
             </div>
             <div class="events-list">
-                <!-- EVENTO ESPECIAL: FINAL DA SUPER TAÇA -->
+                <!-- FINAL DA SUPER TAÇA -->
                 <article class="event-item final-match">
                     <div class="event-date-badge final-badge">
                         <span class="event-day">20</span>
@@ -1893,7 +1901,6 @@
                         </div>
                     </div>
                 </article>
-
                 <!-- Outros eventos -->
                 <article class="event-item">
                     <div class="event-date-badge">
@@ -1967,7 +1974,7 @@
         </div>
     </section>
 
-    <!-- Jogadores (lista completa com 19 atletas) -->
+    <!-- Jogadores -->
     <section id="jogadores" class="players">
         <div class="container">
             <div class="section-header centered">
@@ -1975,189 +1982,11 @@
                 <h2 class="section-title">Jogadores</h2>
             </div>
             <div class="players-wrapper">
-                <button class="scroll-btn left" id="playersScrollLeft">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
-                </button>
+                <button class="scroll-btn left" id="playersScrollLeft" aria-label="Anterior"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
                 <div class="players-grid" id="playersGrid">
-                    <!-- Player 1 -->
-                    <div class="player-card" data-player="1">
-                        <div class="player-photo" style="background-image: url('AldeLuciano.png');"></div>
-                        <div class="player-info">
-                            <div class="player-number">10</div>
-                            <h3 class="player-name">Alde Luciano</h3>
-                            <span class="player-position">MÉDIO</span>
-                        </div>
-                    </div>
-                    <!-- Player 2 -->
-                    <div class="player-card" data-player="2">
-                        <div class="player-photo" style="background-image: url('Artur.jpeg');"></div>
-                        <div class="player-info">
-                            <div class="player-number">14</div>
-                            <h3 class="player-name">Artur Paulo</h3>
-                            <span class="player-position">Defesa lateral esquerdo</span>
-                        </div>
-                    </div>
-                    <!-- Player 3 -->
-                    <div class="player-card" data-player="3">
-                        <div class="player-photo" style="background-image: url('Muansuro.jpeg');"></div>
-                        <div class="player-info">
-                            <div class="player-number">8</div>
-                            <h3 class="player-name">Mansur Taissa</h3>
-                            <span class="player-position">Médio defensivo</span>
-                        </div>
-                    </div>
-                    <!-- Player 4 -->
-                    <div class="player-card" data-player="4">
-                        <div class="player-photo" style="background-image: url('Jorge.jpeg');"></div>
-                        <div class="player-info">
-                            <div class="player-number">5</div>
-                            <h3 class="player-name">Jorge Filipe Munanara</h3>
-                            <span class="player-position">Médio centro</span>
-                        </div>
-                    </div>
-                    <!-- Player 5 -->
-                    <div class="player-card" data-player="5">
-                        <div class="player-photo" style="background-image: url('Muanonizy.jpeg');"></div>
-                        <div class="player-info">
-                            <div class="player-number">1</div>
-                            <h3 class="player-name">Ali Saide</h3>
-                            <span class="player-position">Goleiro</span>
-                        </div>
-                    </div>
-                    <!-- Player 6 -->
-                    <div class="player-card" data-player="6">
-                        <div class="player-photo" style="background-image: url('wilson.jpeg');"></div>
-                        <div class="player-info">
-                            <div class="player-number">17</div>
-                            <h3 class="player-name">Wilson Mutarua</h3>
-                            <span class="player-position">Defesa central</span>
-                        </div>
-                    </div>
-                    <!-- Player 7 -->
-                    <div class="player-card" data-player="7">
-                        <div class="player-photo" style="background-image: url('jama.jpeg');"></div>
-                        <div class="player-info">
-                            <div class="player-number">13</div>
-                            <h3 class="player-name">Jamal Carlitos</h3>
-                            <span class="player-position">Goleiro</span>
-                        </div>
-                    </div>
-                    <!-- Player 8 -->
-                    <div class="player-card" data-player="8">
-                        <div class="player-photo" style="background-image: url('alberto.jpeg');"></div>
-                        <div class="player-info">
-                            <div class="player-number">22</div>
-                            <h3 class="player-name">Alberto Mario</h3>
-                            <span class="player-position">Extremo direito</span>
-                        </div>
-                    </div>
-                    <!-- Player 9 -->
-                    <div class="player-card" data-player="9">
-                        <div class="player-photo" style="background-image: url('albino.jpeg');"></div>
-                        <div class="player-info">
-                            <div class="player-number">23</div>
-                            <h3 class="player-name">Albino Gulamo</h3>
-                            <span class="player-position">Médio</span>
-                        </div>
-                    </div>
-                    <!-- Player 10 -->
-                    <div class="player-card" data-player="10">
-                        <div class="player-photo" style="background-image: url('jose.jpeg');"></div>
-                        <div class="player-info">
-                            <div class="player-number">66</div>
-                            <h3 class="player-name">José Carlitos</h3>
-                            <span class="player-position">Defesa lateral</span>
-                        </div>
-                    </div>
-                    <!-- Player 11 -->
-                    <div class="player-card" data-player="11">
-                        <div class="player-photo" style="background-image: url('eden.jpeg');"></div>
-                        <div class="player-info">
-                            <div class="player-number">9</div>
-                            <h3 class="player-name">Eden Aculunguene</h3>
-                            <span class="player-position">Avançado</span>
-                        </div>
-                    </div>
-                    <!-- Player 12 -->
-                    <div class="player-card" data-player="12">
-                        <div class="player-photo" style="background-image: url('paulo.jpeg');"></div>
-                        <div class="player-info">
-                            <div class="player-number">30</div>
-                            <h3 class="player-name">Paulo Oraibo</h3>
-                            <span class="player-position">Extremo direito</span>
-                        </div>
-                    </div>
-                    <!-- Player 13 -->
-                    <div class="player-card" data-player="13">
-                        <div class="player-photo" style="background-image: url('passurude.jpeg');"></div>
-                        <div class="player-info">
-                            <div class="player-number">3</div>
-                            <h3 class="player-name">Passurude Issa</h3>
-                            <span class="player-position">Defesa central</span>
-                        </div>
-                    </div>
-                    <!-- Player 14 -->
-                    <div class="player-card" data-player="14">
-                        <div class="player-photo" style="background-image: url('valentim.jpeg');"></div>
-                        <div class="player-info">
-                            <div class="player-number">19</div>
-                            <h3 class="player-name">Valentim Amido</h3>
-                            <span class="player-position">Extremo esquerdo</span>
-                        </div>
-                    </div>
-                    <!-- Player 15 -->
-                    <div class="player-card" data-player="15">
-                        <div class="player-photo" style="background-image: url('Mussa.jpg');"></div>
-                        <div class="player-info">
-                            <div class="player-number">2</div>
-                            <h3 class="player-name">Mussa Artur</h3>
-                            <span class="player-position">Defesa lateral</span>
-                        </div>
-                    </div>
-                    <!-- Player 16 -->
-                    <div class="player-card" data-player="16">
-                        <div class="player-photo" style="background-image: url('Ernesto.jpg');"></div>
-                        <div class="player-info">
-                            <div class="player-number">99</div>
-                            <h3 class="player-name">Ernesto Eusebio</h3>
-                            <span class="player-position">Ponta</span>
-                        </div>
-                    </div>
-                    <!-- Player 17 -->
-                    <div class="player-card" data-player="17">
-                        <div class="player-photo" style="background-image: url('Bruno.jpg');"></div>
-                        <div class="player-info">
-                            <div class="player-number">21</div>
-                            <h3 class="player-name">Bruno Sacara</h3>
-                            <span class="player-position">Médio</span>
-                        </div>
-                    </div>
-                    <!-- Player 18 -->
-                    <div class="player-card" data-player="18">
-                        <div class="player-photo" style="background-image: url('logo.png');"></div>
-                        <div class="player-info">
-                            <div class="player-number">24</div>
-                            <h3 class="player-name">Manucho Buanrai</h3>
-                            <span class="player-position">Médio defensivo</span>
-                        </div>
-                    </div>
-                    <!-- Player 19 -->
-                    <div class="player-card" data-player="19">
-                        <div class="player-photo" style="background-image: url('logo.png');"></div>
-                        <div class="player-info">
-                            <div class="player-number">15</div>
-                            <h3 class="player-name">Quito Americo</h3>
-                            <span class="player-position">Médio</span>
-                        </div>
-                    </div>
+                    <!-- dados dos jogadores serão inseridos via JavaScript para manter consistência -->
                 </div>
-                <button class="scroll-btn right" id="playersScrollRight">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </button>
+                <button class="scroll-btn right" id="playersScrollRight" aria-label="Próximo"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
             </div>
         </div>
     </section>
@@ -2167,55 +1996,25 @@
         <div class="player-modal-overlay"></div>
         <div class="player-modal-content">
             <button class="player-modal-close" id="playerModalClose">&times;</button>
-            <button class="player-nav-btn player-prev" id="playerPrev">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-            </button>
-            <button class="player-nav-btn player-next" id="playerNext">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-            </button>
+            <button class="player-nav-btn player-prev" id="playerPrev" aria-label="Jogador anterior"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+            <button class="player-nav-btn player-next" id="playerNext" aria-label="Próximo jogador"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
             <div class="player-modal-body">
                 <div class="player-modal-left">
-                    <div class="player-modal-photo" style="background-image: url('logo.png');"></div>
+                    <div class="player-modal-photo" style="background-image: url('assets/logo.png');" role="img" aria-label="Foto do jogador"></div>
                     <div class="player-modal-number"></div>
                 </div>
                 <div class="player-modal-right">
                     <h2 class="player-modal-name"></h2>
                     <span class="player-modal-position"></span>
-                    
-                    <div class="player-bio">
-                        <h3>Biografia</h3>
-                        <p class="player-bio-text"></p>
-                    </div>
-                    
-                    <div class="player-stats">
-                        <h3>Estatísticas da Época</h3>
-                        <div class="stats-grid">
-                            <div class="stat-item"><span class="stat-value"></span><span class="stat-label">Jogos</span></div>
-                            <div class="stat-item"><span class="stat-value"></span><span class="stat-label">Golos</span></div>
-                            <div class="stat-item"><span class="stat-value"></span><span class="stat-label">Assistências</span></div>
-                            <div class="stat-item"><span class="stat-value"></span><span class="stat-label">Minutos</span></div>
-                        </div>
-                    </div>
-                    
-                    <div class="player-details">
-                        <h3>Detalhes</h3>
-                        <div class="details-list">
-                            <div class="detail-item"><span class="detail-label">Idade:</span><span class="detail-value player-age"></span></div>
-                            <div class="detail-item"><span class="detail-label">Nacionalidade:</span><span class="detail-value player-nationality"></span></div>
-                            <div class="detail-item"><span class="detail-label">Altura:</span><span class="detail-value player-height"></span></div>
-                            <div class="detail-item"><span class="detail-label">Pé Preferido:</span><span class="detail-value player-foot"></span></div>
-                        </div>
-                    </div>
+                    <div class="player-bio"><h3>Biografia</h3><p class="player-bio-text"></p></div>
+                    <div class="player-stats"><h3>Estatísticas da Época</h3><div class="stats-grid"></div></div>
+                    <div class="player-details"><h3>Detalhes</h3><div class="details-list"></div></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ===== DECLARAÇÕES (APENAS JANFAR E ALI) ===== -->
+    <!-- Declarações -->
     <section id="declaracoes" class="statements">
         <div class="container">
             <div class="section-header centered">
@@ -2224,7 +2023,7 @@
                 <p class="section-subtitle">O que dizem o treinador e o nosso guarda-redes</p>
             </div>
 
-            <!-- Antevisão do treinador Janfar (destaque) -->
+            <!-- Antevisão do treinador -->
             <div class="preview-card">
                 <div class="preview-header">
                     <span class="preview-badge">⚽ Antevisão</span>
@@ -2233,14 +2032,11 @@
                 <div class="preview-content">
                     <div class="coach-statement">
                         <div class="statement-avatar">
-                            <img src="Treinador.png" alt="Janfar" onerror="this.src='logo.png'">
+                            <img src="assets/Treinador.png" alt="Janfar Mustafa">
                         </div>
                         <div class="statement-bubble">
                             <p class="statement-text">“São duas equipas, supostamente as melhores da vila. Estou muito entusiasmado em terminar bem nesta final. Eles têm um pouco do nosso estilo de jogo, mas no Tiki-Taka somos superiores. 94% dos nossos jogadores estão em jejum, mas nunca tivemos problemas. Chegámos à final com mérito. É um jogo complicado, mas totalmente possível de vencer.”</p>
-                            <div class="statement-meta">
-                                <strong>Janfar Mustafa</strong>
-                                <span>Treinador Principal</span>
-                            </div>
+                            <div class="statement-meta"><strong>Janfar Mustafa</strong> <span>Treinador Principal</span></div>
                         </div>
                     </div>
                     <div class="preview-stats">
@@ -2251,39 +2047,81 @@
                 </div>
             </div>
 
-            <!-- Declaração do Ali Saide (entrevista exclusiva) -->
+            <!-- Declaração do Ali Saide -->
             <div class="statements-grid">
-                <div class="statement-card" style="grid-column: span 2; background: linear-gradient(145deg, #ffffff, #f8fcff); border-left: 5px solid var(--accent);">
+                <div class="statement-card">
                     <div class="statement-card-header">
-                        <div class="statement-card-avatar" style="background-image: url('Muanonizy.jpeg');"></div>
+                        <div class="statement-card-avatar" style="background-image: url('assets/Muanonizy.jpeg');" role="img" aria-label="Ali Saide"></div>
                         <div class="statement-card-author">
-                            <h4 style="font-size: 1.3rem;">Ali Saide</h4>
-                            <span style="font-size: 0.9rem; color: var(--accent); font-weight: 600;">Goleiro | 17 anos | #1</span>
+                            <h4>Ali Saide</h4>
+                            <span>Goleiro | 17 anos | #1</span>
                         </div>
                     </div>
                     <div class="statement-card-body">
-                        <div style="display: flex; flex-direction: column; gap: 1rem;">
-                            <div class="interview-item">
-                                <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.25rem;">🗣️ Como lida com a pressão?</p>
-                                <p style="font-style: italic; margin-left: 1rem;">“Eu gosto quando a minha equipa pressiona e odeio quando somos pressionados.”</p>
-                            </div>
-                            <div class="interview-item">
-                                <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.25rem;">🧤 Sobre sofrer golos…</p>
-                                <p style="font-style: italic; margin-left: 1rem;">“Todo guarda-redes odeia sofrer golos e eu não sou o contrário.”</p>
-                            </div>
-                            <div class="interview-item">
-                                <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.25rem;">⚽ Quem você acha melhor na equipa adversária?</p>
-                                <p style="font-style: italic; margin-left: 1rem;">“Bem, eles têm bons jogadores, mas eu acho os nossos jogadores melhores que os deles.”</p>
-                            </div>
-                            <div class="interview-item">
-                                <p style="font-weight: 700; color: var(--primary-dark); margin-bottom: 0.25rem;">🔄 Sobre a competição na baliza…</p>
-                                <p style="font-style: italic; margin-left: 1rem;">“Não tenho comentário, pois ainda nem começamos a temporada, fica longe a abril. Até lá vou procurar fazer o meu melhor e ser a escolha do treinador, mas respeito muito o Nlaw e Jama, eles são muito bons e nós temos boa relação.”</p>
-                            </div>
+                        <div class="interview-item">
+                            <p>🗣️ Como lida com a pressão?</p>
+                            <p>“Eu gosto quando a minha equipa pressiona e odeio quando somos pressionados.”</p>
+                        </div>
+                        <div class="interview-item">
+                            <p>🧤 Sobre sofrer golos…</p>
+                            <p>“Todo guarda-redes odeia sofrer golos e eu não sou o contrário.”</p>
+                        </div>
+                        <div class="interview-item">
+                            <p>⚽ Quem você acha melhor na equipa adversária?</p>
+                            <p>“Bem, eles têm bons jogadores, mas eu acho os nossos jogadores melhores que os deles.”</p>
+                        </div>
+                        <div class="interview-item">
+                            <p>🔄 Sobre a competição na baliza…</p>
+                            <p>“Não tenho comentário, pois ainda nem começamos a temporada, fica longe a abril. Até lá vou procurar fazer o meu melhor e ser a escolha do treinador, mas respeito muito o Nlaw e Jama, eles são muito bons e nós temos boa relação.”</p>
                         </div>
                     </div>
                     <div class="statement-card-footer">
                         <span class="statement-date">📅 20 Fevereiro 2026</span>
                         <span class="statement-tag">#EntrevistaExclusiva</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-label">Depoimentos</span>
+                <h2 class="section-title">O que dizem sobre o Bengala</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">“</div>
+                    <p class="testimonial-text">“Jogar no Bengala é mais que futebol. É aprender a ser homem, a respeitar e a lutar pelos sonhos. O clube é a minha segunda família.”</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background-image: url('assets/AldeLuciano.png');" role="img" aria-label="Alde Luciano"></div>
+                        <div class="author-info"><h4>Alde Luciano</h4><p>Jogador (Médio)</p></div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">“</div>
+                    <p class="testimonial-text">“Cheguei aqui com 14 anos e hoje sou treinador. O Bengala acredita nos jovens e dá oportunidades. Orgulho de fazer parte desta história.”</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background-image: url('assets/Treinador.png');" role="img" aria-label="Janfar Mustafa"></div>
+                        <div class="author-info"><h4>Janfar Mustafa</h4><p>Treinador Principal</p></div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">“</div>
+                    <p class="testimonial-text">“O trabalho social que o clube desenvolve na comunidade é incrível. Ver as crianças com material escolar e sorrisos no rosto não tem preço.”</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background-image: url('assets/desportivo.jpeg');" role="img" aria-label="Ramadane Buana Chale"></div>
+                        <div class="author-info"><h4>Ramadane Buana Chale</h4><p>Director Desportivo</p></div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">“</div>
+                    <p class="testimonial-text">“Meu filho evoluiu muito desde que entrou no Bengala. Não só como jogador, mas como pessoa. A disciplina e o apoio que recebe aqui são fantásticos.”</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background-image: url('assets/logo.png');" role="img" aria-label="Maria Tome"></div>
+                        <div class="author-info"><h4>Maria Tome</h4><p>Mãe de atleta</p></div>
                     </div>
                 </div>
             </div>
@@ -2298,46 +2136,11 @@
                 <h2 class="section-title">Galeria</h2>
             </div>
             <div class="gallery-wrapper">
-                <button class="scroll-btn left" id="galleryScrollLeft">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg>
-                </button>
+                <button class="scroll-btn left" id="galleryScrollLeft" aria-label="Anterior"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
                 <div class="gallery-grid" id="galleryGrid">
-                    <div class="gallery-item" data-event="Torneio de Futebol">
-                        <div class="gallery-image" style="background-image: url('IMG-20260214-WA0020.jpg');"></div>
-                        <div class="gallery-overlay"><span class="gallery-title">Torneio de Futebol 2025</span></div>
-                    </div>
-                    <div class="gallery-item" data-event="Distribuição de Material Desportivo">
-                        <div class="gallery-image" style="background-image: url('material.jpeg');"></div>
-                        <div class="gallery-overlay"><span class="gallery-title">Distribuição de Material</span></div>
-                    </div>
-                    <div class="gallery-item" data-event="Festa de Encerramento">
-                        <div class="gallery-image" style="background-image: url('IMG-20260214-WA0021.jpg');"></div>
-                        <div class="gallery-overlay"><span class="gallery-title">Festa de Encerramento</span></div>
-                    </div>
-                    <div class="gallery-item" data-event="Workshop">
-                        <div class="gallery-image" style="background-image: url('IMG-20260214-WA0028.jpg');"></div>
-                        <div class="gallery-overlay"><span class="gallery-title">Workshop de Liderança</span></div>
-                    </div>
-                    <div class="gallery-item" data-event="Acção Social">
-                        <div class="gallery-image" style="background-image: url('IMG-20260214-WA0032.jpg');"></div>
-                        <div class="gallery-overlay"><span class="gallery-title">Acção Social</span></div>
-                    </div>
-                    <div class="gallery-item" data-event="Treino">
-                        <div class="gallery-image" style="background-image: url('IMG-20260214-WA0029.jpg');"></div>
-                        <div class="gallery-overlay"><span class="gallery-title">Treino Semanal</span></div>
-                    </div>
-                    <div class="gallery-item" data-event="Reunião">
-                        <div class="gallery-image" style="background-image: url('IMG-20260214-WA0030.jpg');"></div>
-                        <div class="gallery-overlay"><span class="gallery-title">Reunião da Directoria</span></div>
-                    </div>
+                    <!-- Itens da galeria serão inseridos via JavaScript -->
                 </div>
-                <button class="scroll-btn right" id="galleryScrollRight">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg>
-                </button>
+                <button class="scroll-btn right" id="galleryScrollRight" aria-label="Próximo"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
             </div>
         </div>
     </section>
@@ -2349,57 +2152,8 @@
                 <span class="section-label">Actualidades</span>
                 <h2 class="section-title">Notícias</h2>
             </div>
-            <div class="news-grid">
-                <article class="news-card" data-news="5">
-                    <div class="news-image" style="background-image: url('logo.png');"></div>
-                    <div class="news-content">
-                        <span class="news-date">18 Fevereiro 2026</span>
-                        <span class="news-category">Resultado</span>
-                        <h3>Vitória Importante do FC Bengala</h3>
-                        <p><strong>Fim da partida!</strong> FC Bengala 2 - 1 OJM ⚽ Ernesto (37') ⚽ Bissaka (47') ⚽ Halde (64')</p>
-                        <a href="#" class="news-link">Ler mais →</a>
-                    </div>
-                </article>
-                <article class="news-card featured" data-news="1">
-                    <div class="news-image" style="background-image: url('material.jpeg');"></div>
-                    <div class="news-content">
-                        <span class="news-date">15 Fevereiro 2026</span>
-                        <span class="news-category">Comunicado</span>
-                        <h3>Distribuição de Material Desportivo</h3>
-                        <p>Hoje os nossos jogadores receberam novos equipamentos desportivos, reforçando a preparação para os próximos desafios.</p>
-                        <a href="#" class="news-link">Ler mais →</a>
-                    </div>
-                </article>
-                <article class="news-card" data-news="2">
-                    <div class="news-image" style="background-image: url('IMG-20260214-WA0042.jpg');"></div>
-                    <div class="news-content">
-                        <span class="news-date">5 Fevereiro 2025</span>
-                        <span class="news-category">Evento</span>
-                        <h3>Sucesso no Torneio de Janeiro</h3>
-                        <p>O nosso torneio comunitário reuniu mais de 200 participantes e espectadores.</p>
-                        <a href="#" class="news-link">Ler mais →</a>
-                    </div>
-                </article>
-                <article class="news-card" data-news="3">
-                    <div class="news-image" style="background-image: url('IMG-20260214-WA0033.jpg');"></div>
-                    <div class="news-content">
-                        <span class="news-date">28 Janeiro 2025</span>
-                        <span class="news-category">Aviso</span>
-                        <h3>Calendário de Actividades 2025</h3>
-                        <p>Já está disponível o calendário completo de actividades para este ano.</p>
-                        <a href="#" class="news-link">Ler mais →</a>
-                    </div>
-                </article>
-                <article class="news-card" data-news="4">
-                    <div class="news-image" style="background-image: url('IMG-20260214-WA0037.jpg');"></div>
-                    <div class="news-content">
-                        <span class="news-date">15 Janeiro 2025</span>
-                        <span class="news-category">Conquista</span>
-                        <h3>FC BENGALA Celebra 5 Anos</h3>
-                        <p>Comemoramos cinco anos de história, crescimento e impacto positivo na comunidade.</p>
-                        <a href="#" class="news-link">Ler mais →</a>
-                    </div>
-                </article>
+            <div class="news-grid" id="newsGrid">
+                <!-- Notícias serão inseridas via JavaScript -->
             </div>
         </div>
     </section>
@@ -2431,39 +2185,16 @@
             <div class="contact-grid">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                            </svg>
-                        </div>
-                        <div class="contact-details">
-                            <h3>WhatsApp</h3>
-                            <a href="https://wa.me/258864695548" target="_blank">+258 86 469 5548</a>
-                        </div>
+                        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+                        <div class="contact-details"><h3>WhatsApp</h3><a href="https://wa.me/258864695548" target="_blank">+258 86 469 5548</a></div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                <polyline points="22,6 12,13 2,6"/>
-                            </svg>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Email</h3>
-                            <a href="mailto:benga@geral.co.mz">benga@geral.co.mz</a>
-                        </div>
+                        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+                        <div class="contact-details"><h3>Email</h3><a href="mailto:benga@geral.co.mz">benga@geral.co.mz</a></div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                <circle cx="12" cy="10" r="3"/>
-                            </svg>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Localização</h3>
-                            <p>Massingirine, Nacala-a-Velha, Moçambique</p>
-                        </div>
+                        <div class="contact-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+                        <div class="contact-details"><h3>Localização</h3><p>Massingirine, Nacala-a-Velha, Moçambique</p></div>
                     </div>
                     <div class="social-links">
                         <h3>Redes Sociais</h3>
@@ -2474,7 +2205,7 @@
                     </div>
                 </div>
                 <div class="contact-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d15563.875281901265!2d40.622389!3d-14.545563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x18b8550f5d4b5c77%3A0xd6382ef8ba21adf!2sEscola%20de%20futebol%20bengala%2C%20FJ3J%2BFMQ%2C%20Nacala%20Velha!3m2!1d-14.5462823!2d40.6317242!4m5!1s0x18b8570f561346a5%3A0x65a6a9045994f712!2sNacala-a-Velha!3m2!1d-14.545563!2d40.622389!5e0!3m2!1spt-PT!2smz!4v1709678900000!5m2!1spt-PT!2smz" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d15563.875281901265!2d40.622389!3d-14.545563!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x18b8550f5d4b5c77%3A0xd6382ef8ba21adf!2sEscola%20de%20futebol%20bengala%2C%20FJ3J%2BFMQ%2C%20Nacala%20Velha!3m2!1d-14.5462823!2d40.6317242!4m5!1s0x18b8570f561346a5%3A0x65a6a9045994f712!2sNacala-a-Velha!3m2!1d-14.545563!2d40.622389!5e0!3m2!1spt-PT!2smz!4v1709678900000!5m2!1spt-PT!2smz" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" title="Localização do clube"></iframe>
                 </div>
             </div>
         </div>
@@ -2521,55 +2252,107 @@
     <!-- Lightbox -->
     <div class="lightbox" id="lightbox">
         <button class="lightbox-close" id="lightboxClose">&times;</button>
-        <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrev">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-        </button>
-        <button class="lightbox-nav-btn lightbox-next" id="lightboxNext">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-        </button>
+        <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrev" aria-label="Imagem anterior"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button class="lightbox-nav-btn lightbox-next" id="lightboxNext" aria-label="Próxima imagem"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
         <div class="lightbox-content">
-            <img src="" alt="Gallery image" id="lightboxImage">
+            <img src="" alt="" id="lightboxImage">
             <div class="lightbox-caption" id="lightboxCaption"></div>
             <div class="lightbox-counter" id="lightboxCounter"></div>
         </div>
     </div>
 
     <script>
-        // ========== DADOS DOS JOGADORES (19 ATLETAS) ==========
+        // ========== DADOS ==========
         const playersData = {
-            1: { name: "Alde Luciano", position: "Médio Ofensivo", number: "10", bio: "Alde é o cérebro do meio-campo, conhecido pela sua visão de jogo e capacidade de finalização. Com apenas 17 anos, já é um dos líderes da equipa.", age: 17, nationality: "Moçambicana", height: "1,78 m", foot: "Direito", stats: { games: 18, goals: 7, assists: 9, minutes: 1450 }, photo: "AldeLuciano.png" },
-            2: { name: "Artur Paulo", position: "Defesa Lateral Esquerdo", number: "14", bio: "Lateral incansável, combina velocidade e precisão nos cruzamentos. É peça fundamental no sistema defensivo e ofensivo da equipa.", age: 17, nationality: "Moçambicana", height: "1,75 m", foot: "Esquerdo", stats: { games: 20, goals: 1, assists: 4, minutes: 1620 }, photo: "Artur.jpeg" },
-            3: { name: "Mansur Taissa", position: "Médio Defensivo", number: "8", bio: "O cão de guarda do meio-campo. Recupera bolas e dita o ritmo do jogo com passes precisos.", age: 16, nationality: "Moçambicana", height: "1,82 m", foot: "Direito", stats: { games: 22, goals: 2, assists: 3, minutes: 1850 }, photo: "Muansuro.jpeg" },
-            4: { name: "Jorge Filipe Munanara", position: "Médio Centro", number: "5", bio: "Jogador elegante, domina a posse e quebra linhas com passes verticais. Tem faro de golo de média distância.", age: 16, nationality: "Moçambicana", height: "1,80 m", foot: "Direito", stats: { games: 19, goals: 4, assists: 6, minutes: 1520 }, photo: "Jorge.jpeg" },
-            5: { name: "Ali Saide", position: "Goleiro", number: "1", bio: "Guardião seguro, ágil debaixo dos postes e excelente no jogo aéreo. Várias defesas decisivas na época.", age: 17, nationality: "Moçambicana", height: "1,88 m", foot: "Direito", stats: { games: 21, goals: 0, assists: 0, minutes: 1890 }, photo: "Muanonizy.jpeg" },
-            6: { name: "Wilson Mutarua", position: "Defesa Central", number: "17", bio: "Rocha defensiva, imponente no desarme e na antecipação. Líder da defesa.", age: 17, nationality: "Moçambicana", height: "1,85 m", foot: "Direito", stats: { games: 20, goals: 2, assists: 1, minutes: 1700 }, photo: "wilson.jpeg" },
-            7: { name: "Jamal Carlitos", position: "Goleiro", number: "13", bio: "Goleiro promissor, rápido nos reflexos e com boa colocação. Tem ganhado oportunidades importantes.", age: 17, nationality: "Moçambicana", height: "1,86 m", foot: "Esquerdo", stats: { games: 8, goals: 0, assists: 0, minutes: 720 }, photo: "jama.jpeg" },
-            8: { name: "Alberto Mario", position: "Extremo Direito", number: "22", bio: "Velocidade e drible são as suas marcas. Desequilibra no um‑contra‑um e cria oportunidades para a equipa.", age: 15, nationality: "Moçambicana", height: "1,73 m", foot: "Direito", stats: { games: 23, goals: 8, assists: 7, minutes: 1780 }, photo: "alberto.jpeg" },
-            9: { name: "Albino Gulamo", position: "Médio", number: "23", bio: "Box‑to‑box, cobre todo o campo. Contribui tanto na defesa como no ataque.", age: 15, nationality: "Moçambicana", height: "1,77 m", foot: "Direito", stats: { games: 17, goals: 3, assists: 5, minutes: 1310 }, photo: "albino.jpeg" },
-            10: { name: "José Carlitos", position: "Defesa Lateral", number: "66", bio: "Lateral direito com boa capacidade de cruzamento e consistência defensiva.", age: 17, nationality: "Moçambicana", height: "1,74 m", foot: "Direito", stats: { games: 16, goals: 0, assists: 3, minutes: 1250 }, photo: "jose.jpeg" },
-            11: { name: "Eden Aculunguene", position: "Avançado", number: "9", bio: "Finalizador nato, forte na área e com faro de golo. Principal referência ofensiva.", age: 17, nationality: "Moçambicana", height: "1,81 m", foot: "Direito", stats: { games: 20, goals: 12, assists: 4, minutes: 1620 }, photo: "eden.jpeg" },
-            12: { name: "Paulo Oraibo", position: "Extremo Direito", number: "30", bio: "Jovem extremo, rápido e com boa técnica. Aparece bem nas diagonais.", age: 19, nationality: "Moçambicana", height: "1,72 m", foot: "Direito", stats: { games: 12, goals: 2, assists: 3, minutes: 540 }, photo: "paulo.jpeg" },
-            13: { name: "Passurude Issa", position: "Defesa Central", number: "3", bio: "Defensor forte no jogo aéreo e na antecipação. Transmite segurança à equipa.", age: 16, nationality: "Moçambicana", height: "1,87 m", foot: "Esquerdo", stats: { games: 18, goals: 1, assists: 1, minutes: 1530 }, photo: "passurude.jpeg" },
-            14: { name: "Valentim Amido", position: "Extremo Esquerdo", number: "19", bio: "Driblador nato, corta para dentro e finaliza com qualidade. Tem sido uma das revelações.", age: 16, nationality: "Moçambicana", height: "1,75 m", foot: "Esquerdo", stats: { games: 15, goals: 5, assists: 2, minutes: 980 }, photo: "valentim.jpeg" },
-            15: { name: "Mussa Artur", position: "Defesa Lateral", number: "2", bio: "Defesa consistente, forte nos duelos e com boa capacidade de apoiar o ataque pelas alas.", age: 14, nationality: "Moçambicana", height: "1,78 m", foot: "Direito", stats: { games: 18, goals: 1, assists: 3, minutes: 1450 }, photo: "Mussa.jpg" },
-            16: { name: "Ernesto Eusebio", position: "Ponta", number: "99", bio: "Avançado rápido e oportunista, destaca-se pela movimentação inteligente e faro de golo.", age: 17, nationality: "Moçambicana", height: "1,80 m", foot: "Direito", stats: { games: 20, goals: 8, assists: 4, minutes: 1600 }, photo: "Ernesto.jpg" },
-            17: { name: "Bruno Sacara", position: "Médio", number: "21", bio: "Médio equilibrado, organiza o jogo e contribui tanto defensiva como ofensivamente.", age: 16, nationality: "Moçambicana", height: "1,74 m", foot: "Direito", stats: { games: 22, goals: 3, assists: 6, minutes: 1750 }, photo: "Bruno.jpg" },
-            18: { name: "Manucho Buanrai", position: "Médio defensivo", number: "24", bio: "Jovem médio defensivo com grande capacidade de desarme e visão de jogo. Promete ser uma peça importante no meio-campo.", age: 17, nationality: "Moçambicana", height: "1,76 m", foot: "Direito", stats: { games: 0, goals: 0, assists: 0, minutes: 0 }, photo: "logo.png" },
-            19: { name: "Quito Americo", position: "Médio", number: "15", bio: "Médio versátil, capaz de jogar tanto na contenção como na criação. Tem boa técnica e passe.", age: 17, nationality: "Moçambicana", height: "1,75 m", foot: "Direito", stats: { games: 0, goals: 0, assists: 0, minutes: 0 }, photo: "logo.png" }
+            1: { name: "Alde Luciano", position: "Médio Ofensivo", number: "10", bio: "Alde é o cérebro do meio-campo, conhecido pela sua visão de jogo e capacidade de finalização. Com apenas 17 anos, já é um dos líderes da equipa.", age: 17, nationality: "Moçambicana", height: "1,78 m", foot: "Direito", stats: { games: 18, goals: 7, assists: 9, minutes: 1450 }, photo: "assets/AldeLuciano.png" },
+            2: { name: "Artur Paulo", position: "Defesa Lateral Esquerdo", number: "14", bio: "Lateral incansável, combina velocidade e precisão nos cruzamentos. É peça fundamental no sistema defensivo e ofensivo da equipa.", age: 17, nationality: "Moçambicana", height: "1,75 m", foot: "Esquerdo", stats: { games: 20, goals: 1, assists: 4, minutes: 1620 }, photo: "assets/Artur.jpeg" },
+            3: { name: "Mansur Taissa", position: "Médio Defensivo", number: "8", bio: "O cão de guarda do meio-campo. Recupera bolas e dita o ritmo do jogo com passes precisos.", age: 16, nationality: "Moçambicana", height: "1,82 m", foot: "Direito", stats: { games: 22, goals: 2, assists: 3, minutes: 1850 }, photo: "assets/Muansuro.jpeg" },
+            4: { name: "Jorge Filipe Munanara", position: "Médio Centro", number: "5", bio: "Jogador elegante, domina a posse e quebra linhas com passes verticais. Tem faro de golo de média distância.", age: 16, nationality: "Moçambicana", height: "1,80 m", foot: "Direito", stats: { games: 19, goals: 4, assists: 6, minutes: 1520 }, photo: "assets/Jorge.jpeg" },
+            5: { name: "Ali Saide", position: "Goleiro", number: "1", bio: "Guardião seguro, ágil debaixo dos postes e excelente no jogo aéreo. Várias defesas decisivas na época.", age: 17, nationality: "Moçambicana", height: "1,88 m", foot: "Direito", stats: { games: 21, goals: 0, assists: 0, minutes: 1890 }, photo: "assets/Muanonizy.jpeg" },
+            6: { name: "Wilson Mutarua", position: "Defesa Central", number: "17", bio: "Rocha defensiva, imponente no desarme e na antecipação. Líder da defesa.", age: 17, nationality: "Moçambicana", height: "1,85 m", foot: "Direito", stats: { games: 20, goals: 2, assists: 1, minutes: 1700 }, photo: "assets/wilson.jpeg" },
+            7: { name: "Jamal Carlitos", position: "Goleiro", number: "13", bio: "Goleiro promissor, rápido nos reflexos e com boa colocação. Tem ganhado oportunidades importantes.", age: 17, nationality: "Moçambicana", height: "1,86 m", foot: "Esquerdo", stats: { games: 8, goals: 0, assists: 0, minutes: 720 }, photo: "assets/jama.jpeg" },
+            8: { name: "Alberto Mario", position: "Extremo Direito", number: "22", bio: "Velocidade e drible são as suas marcas. Desequilibra no um‑contra‑um e cria oportunidades para a equipa.", age: 15, nationality: "Moçambicana", height: "1,73 m", foot: "Direito", stats: { games: 23, goals: 8, assists: 7, minutes: 1780 }, photo: "assets/alberto.jpeg" },
+            9: { name: "Albino Gulamo", position: "Médio", number: "23", bio: "Box‑to‑box, cobre todo o campo. Contribui tanto na defesa como no ataque.", age: 15, nationality: "Moçambicana", height: "1,77 m", foot: "Direito", stats: { games: 17, goals: 3, assists: 5, minutes: 1310 }, photo: "assets/albino.jpeg" },
+            10: { name: "José Carlitos", position: "Defesa Lateral", number: "66", bio: "Lateral direito com boa capacidade de cruzamento e consistência defensiva.", age: 17, nationality: "Moçambicana", height: "1,74 m", foot: "Direito", stats: { games: 16, goals: 0, assists: 3, minutes: 1250 }, photo: "assets/jose.jpeg" },
+            11: { name: "Eden Aculunguene", position: "Avançado", number: "9", bio: "Finalizador nato, forte na área e com faro de golo. Principal referência ofensiva.", age: 17, nationality: "Moçambicana", height: "1,81 m", foot: "Direito", stats: { games: 20, goals: 12, assists: 4, minutes: 1620 }, photo: "assets/eden.jpeg" },
+            12: { name: "Paulo Oraibo", position: "Extremo Direito", number: "30", bio: "Jovem extremo, rápido e com boa técnica. Aparece bem nas diagonais.", age: 19, nationality: "Moçambicana", height: "1,72 m", foot: "Direito", stats: { games: 12, goals: 2, assists: 3, minutes: 540 }, photo: "assets/paulo.jpeg" },
+            13: { name: "Passurude Issa", position: "Defesa Central", number: "3", bio: "Defensor forte no jogo aéreo e na antecipação. Transmite segurança à equipa.", age: 16, nationality: "Moçambicana", height: "1,87 m", foot: "Esquerdo", stats: { games: 18, goals: 1, assists: 1, minutes: 1530 }, photo: "assets/passurude.jpeg" },
+            14: { name: "Valentim Amido", position: "Extremo Esquerdo", number: "19", bio: "Driblador nato, corta para dentro e finaliza com qualidade. Tem sido uma das revelações.", age: 16, nationality: "Moçambicana", height: "1,75 m", foot: "Esquerdo", stats: { games: 15, goals: 5, assists: 2, minutes: 980 }, photo: "assets/valentim.jpeg" },
+            15: { name: "Mussa Artur", position: "Defesa Lateral", number: "2", bio: "Defesa consistente, forte nos duelos e com boa capacidade de apoiar o ataque pelas alas.", age: 14, nationality: "Moçambicana", height: "1,78 m", foot: "Direito", stats: { games: 18, goals: 1, assists: 3, minutes: 1450 }, photo: "assets/Mussa.jpg" },
+            16: { name: "Ernesto Eusebio", position: "Ponta", number: "99", bio: "Avançado rápido e oportunista, destaca-se pela movimentação inteligente e faro de golo.", age: 17, nationality: "Moçambicana", height: "1,80 m", foot: "Direito", stats: { games: 20, goals: 8, assists: 4, minutes: 1600 }, photo: "assets/Ernesto.jpg" },
+            17: { name: "Bruno Sacara", position: "Médio", number: "21", bio: "Médio equilibrado, organiza o jogo e contribui tanto defensiva como ofensivamente.", age: 16, nationality: "Moçambicana", height: "1,74 m", foot: "Direito", stats: { games: 22, goals: 3, assists: 6, minutes: 1750 }, photo: "assets/Bruno.jpg" },
+            18: { name: "Manucho Buanrai", position: "Médio defensivo", number: "24", bio: "Jovem médio defensivo com grande capacidade de desarme e visão de jogo. Promete ser uma peça importante no meio-campo.", age: 17, nationality: "Moçambicana", height: "1,76 m", foot: "Direito", stats: { games: 0, goals: 0, assists: 0, minutes: 0 }, photo: "assets/logo.png" },
+            19: { name: "Quito Americo", position: "Médio", number: "15", bio: "Médio versátil, capaz de jogar tanto na contenção como na criação. Tem boa técnica e passe.", age: 17, nationality: "Moçambicana", height: "1,75 m", foot: "Direito", stats: { games: 0, goals: 0, assists: 0, minutes: 0 }, photo: "assets/logo.png" }
         };
 
-        // ========== DADOS DAS NOTÍCIAS ==========
         const newsData = {
-            1: { title: "Distribuição de Material Desportivo", date: "15 Fevereiro 2026", category: "Comunicado", image: "material.jpeg", content: "<p>Hoje os nossos jogadores receberam novos equipamentos desportivos, reforçando a preparação para os próximos desafios e competições. A iniciativa visa garantir que todos os atletas tenham material adequado para treinos e jogos, promovendo conforto, segurança e melhor desempenho.</p><p>A directoria agradece a todos os patrocinadores e colaboradores que tornaram possível esta acção. Continuamos empenhados em proporcionar as melhores condições para o desenvolvimento do desporto na nossa comunidade.</p>" },
-            2: { title: "Sucesso no Torneio de Janeiro", date: "5 Fevereiro 2026", category: "Evento", image: "IMG-20260214-WA0042.jpg", content: "<p>O nosso torneio comunitário reuniu mais de 200 participantes e espectadores, consolidando o FC BENGALA como promotor de actividades desportivas na região.</p><p>Foram 12 equipas em competição, num ambiente de fair‑play e confraternização. O evento contou ainda com actividades paralelas para as crianças e food trucks.</p>" },
-            3: { title: "Calendário de Actividades 2025", date: "28 Janeiro 2026", category: "Aviso", image: "IMG-20260214-WA0033.jpg", content: "<p>Já está disponível o calendário completo de actividades para este ano. Consulte as datas e programe a sua participação nos eventos do clube.</p><p>Entre os destaques estão o Torneio de Futebol (15 de Março), a Acção Social (10 de Maio) e a Festa de Encerramento (20 de Dezembro).</p>" },
-            4: { title: "FC BENGALA Celebra 5 Anos", date: "15 Janeiro 2026", category: "Conquista", image: "IMG-20260214-WA0037.jpg", content: "<p>Comemoramos cinco anos de história, crescimento e impacto positivo na comunidade. Obrigado a todos que fazem parte desta jornada.</p><p>A celebração contou com a presença de fundadores, atletas, familiares e amigos. Foram momentos de muita emoção e reconhecimento do trabalho colectivo.</p>" },
-            5: { title: "Vitória Importante do FC Bengala", date: "18 Fevereiro 2026", category: "Resultado", image: "logo.png", content: "<p><strong>Fim da partida!</strong></p><p>FC Bengala 2 - 1 OJM</p><p>⚽ Ernesto (37')<br>⚽ Bissaka (47')<br>⚽ Halde (64')</p><p>Uma vitória importante que reforça a nossa posição na competição e demonstra a determinação da equipa.</p>" }
+            1: { title: "Distribuição de Material Desportivo", date: "15 Fevereiro 2026", category: "Comunicado", image: "assets/material.jpeg", content: "<p>Hoje os nossos jogadores receberam novos equipamentos desportivos, reforçando a preparação para os próximos desafios e competições. A iniciativa visa garantir que todos os atletas tenham material adequado para treinos e jogos, promovendo conforto, segurança e melhor desempenho.</p><p>A directoria agradece a todos os patrocinadores e colaboradores que tornaram possível esta acção. Continuamos empenhados em proporcionar as melhores condições para o desenvolvimento do desporto na nossa comunidade.</p>" },
+            2: { title: "Sucesso no Torneio de Janeiro", date: "5 Fevereiro 2026", category: "Evento", image: "assets/IMG-20260214-WA0042.jpg", content: "<p>O nosso torneio comunitário reuniu mais de 200 participantes e espectadores, consolidando o FC BENGALA como promotor de actividades desportivas na região.</p><p>Foram 12 equipas em competição, num ambiente de fair‑play e confraternização. O evento contou ainda com actividades paralelas para as crianças e food trucks.</p>" },
+            3: { title: "Calendário de Actividades 2025", date: "28 Janeiro 2026", category: "Aviso", image: "assets/IMG-20260214-WA0033.jpg", content: "<p>Já está disponível o calendário completo de actividades para este ano. Consulte as datas e programe a sua participação nos eventos do clube.</p><p>Entre os destaques estão o Torneio de Futebol (15 de Março), a Acção Social (10 de Maio) e a Festa de Encerramento (20 de Dezembro).</p>" },
+            4: { title: "FC BENGALA Celebra 5 Anos", date: "15 Janeiro 2026", category: "Conquista", image: "assets/IMG-20260214-WA0037.jpg", content: "<p>Comemoramos cinco anos de história, crescimento e impacto positivo na comunidade. Obrigado a todos que fazem parte desta jornada.</p><p>A celebração contou com a presença de fundadores, atletas, familiares e amigos. Foram momentos de muita emoção e reconhecimento do trabalho colectivo.</p>" },
+            5: { title: "Vitória Importante do FC Bengala", date: "18 Fevereiro 2026", category: "Resultado", image: "assets/logo.png", content: "<p><strong>Fim da partida!</strong></p><p>FC Bengala 2 - 1 OJM</p><p>⚽ Ernesto (37')<br>⚽ Bissaka (47')<br>⚽ Halde (64')</p><p>Uma vitória importante que reforça a nossa posição na competição e demonstra a determinação da equipa.</p>" }
         };
+
+        const galleryItems = [
+            { src: "assets/IMG-20260214-WA0020.jpg", title: "Torneio de Futebol 2025" },
+            { src: "assets/material.jpeg", title: "Distribuição de Material" },
+            { src: "assets/IMG-20260214-WA0021.jpg", title: "Festa de Encerramento" },
+            { src: "assets/IMG-20260214-WA0028.jpg", title: "Workshop de Liderança" },
+            { src: "assets/IMG-20260214-WA0032.jpg", title: "Acção Social" },
+            { src: "assets/IMG-20260214-WA0029.jpg", title: "Treino Semanal" },
+            { src: "assets/IMG-20260214-WA0030.jpg", title: "Reunião da Directoria" }
+        ];
+
+        // ========== RENDERIZAR JOGADORES ==========
+        const playersGrid = document.getElementById('playersGrid');
+        for (let i = 1; i <= 19; i++) {
+            const p = playersData[i];
+            const card = document.createElement('div');
+            card.className = 'player-card';
+            card.setAttribute('data-player', i);
+            card.innerHTML = `
+                <div class="player-photo" style="background-image: url('${p.photo}');" role="img" aria-label="${p.name}"></div>
+                <div class="player-info">
+                    <div class="player-number">${p.number}</div>
+                    <h3 class="player-name">${p.name}</h3>
+                    <span class="player-position">${p.position}</span>
+                </div>
+            `;
+            playersGrid.appendChild(card);
+        }
+
+        // ========== RENDERIZAR GALERIA ==========
+        const galleryGrid = document.getElementById('galleryGrid');
+        galleryItems.forEach((item, index) => {
+            const div = document.createElement('div');
+            div.className = 'gallery-item';
+            div.setAttribute('data-index', index);
+            div.innerHTML = `
+                <div class="gallery-image" style="background-image: url('${item.src}');" role="img" aria-label="${item.title}"></div>
+                <div class="gallery-overlay"><span class="gallery-title">${item.title}</span></div>
+            `;
+            galleryGrid.appendChild(div);
+        });
+
+        // ========== RENDERIZAR NOTÍCIAS ==========
+        const newsGrid = document.getElementById('newsGrid');
+        for (let i = 1; i <= 5; i++) {
+            const n = newsData[i];
+            const card = document.createElement('article');
+            card.className = `news-card ${i === 1 ? 'featured' : ''}`;
+            card.setAttribute('data-news', i);
+            card.innerHTML = `
+                <div class="news-image" style="background-image: url('${n.image}');" role="img" aria-label="${n.title}"></div>
+                <div class="news-content">
+                    <span class="news-date">${n.date}</span>
+                    <span class="news-category">${n.category}</span>
+                    <h3>${n.title}</h3>
+                    <p>${n.content.replace(/<[^>]*>/g, '').substring(0, 100)}…</p>
+                    <a href="#" class="news-link">Ler mais →</a>
+                </div>
+            `;
+            newsGrid.appendChild(card);
+        }
 
         // ========== FUNÇÕES DO MODAL DE JOGADOR ==========
         const playerModal = document.getElementById('playerModal');
@@ -2592,22 +2375,24 @@
         }
 
         function updatePlayerModal(playerId) {
-            const player = playersData[playerId];
-            if (!player) return;
-            document.querySelector('.player-modal-name').textContent = player.name;
-            document.querySelector('.player-modal-position').textContent = player.position;
-            document.querySelector('.player-modal-number').textContent = player.number;
-            document.querySelector('.player-bio-text').textContent = player.bio;
-            document.querySelector('.player-age').textContent = player.age + ' anos';
-            document.querySelector('.player-nationality').textContent = player.nationality;
-            document.querySelector('.player-height').textContent = player.height;
-            document.querySelector('.player-foot').textContent = player.foot;
-            const statValues = document.querySelectorAll('.stat-value');
-            statValues[0].textContent = player.stats.games;
-            statValues[1].textContent = player.stats.goals;
-            statValues[2].textContent = player.stats.assists;
-            statValues[3].textContent = player.stats.minutes;
-            document.querySelector('.player-modal-photo').style.backgroundImage = `url('${player.photo}')`;
+            const p = playersData[playerId];
+            if (!p) return;
+            document.querySelector('.player-modal-name').textContent = p.name;
+            document.querySelector('.player-modal-position').textContent = p.position;
+            document.querySelector('.player-modal-number').textContent = p.number;
+            document.querySelector('.player-bio-text').textContent = p.bio;
+            document.querySelector('.player-age').textContent = p.age + ' anos';
+            document.querySelector('.player-nationality').textContent = p.nationality;
+            document.querySelector('.player-height').textContent = p.height;
+            document.querySelector('.player-foot').textContent = p.foot;
+            const statsGrid = document.querySelector('.player-stats .stats-grid');
+            statsGrid.innerHTML = `
+                <div class="stat-item"><span class="stat-value">${p.stats.games}</span><span class="stat-label">Jogos</span></div>
+                <div class="stat-item"><span class="stat-value">${p.stats.goals}</span><span class="stat-label">Golos</span></div>
+                <div class="stat-item"><span class="stat-value">${p.stats.assists}</span><span class="stat-label">Assistências</span></div>
+                <div class="stat-item"><span class="stat-value">${p.stats.minutes}</span><span class="stat-label">Minutos</span></div>
+            `;
+            document.querySelector('.player-modal-photo').style.backgroundImage = `url('${p.photo}')`;
         }
 
         function nextPlayer() {
@@ -2620,12 +2405,8 @@
         }
 
         document.querySelectorAll('.player-card').forEach(card => {
-            card.addEventListener('click', () => {
-                const playerId = card.getAttribute('data-player');
-                openPlayerModal(playerId);
-            });
+            card.addEventListener('click', () => openPlayerModal(card.dataset.player));
         });
-
         playerModalClose.addEventListener('click', closePlayerModal);
         playerNext.addEventListener('click', nextPlayer);
         playerPrev.addEventListener('click', prevPlayer);
@@ -2633,26 +2414,24 @@
             if (e.target.classList.contains('player-modal-overlay')) closePlayerModal();
         });
         document.addEventListener('keydown', (e) => {
-            if (playerModal.classList.contains('active')) {
-                if (e.key === 'Escape') closePlayerModal();
-                else if (e.key === 'ArrowRight') nextPlayer();
-                else if (e.key === 'ArrowLeft') prevPlayer();
-            }
+            if (!playerModal.classList.contains('active')) return;
+            if (e.key === 'Escape') closePlayerModal();
+            else if (e.key === 'ArrowRight') nextPlayer();
+            else if (e.key === 'ArrowLeft') prevPlayer();
         });
 
         // ========== FUNÇÕES DO MODAL DE NOTÍCIAS ==========
         const newsModal = document.getElementById('newsModal');
         const newsModalClose = document.getElementById('newsModalClose');
-        const newsCards = document.querySelectorAll('.news-card');
 
         function openNewsModal(newsId) {
-            const news = newsData[newsId];
-            if (!news) return;
-            document.querySelector('.news-modal-title').textContent = news.title;
-            document.querySelector('.news-modal-date').textContent = news.date;
-            document.querySelector('.news-modal-category').textContent = news.category;
-            document.querySelector('.news-modal-image').style.backgroundImage = `url('${news.image}')`;
-            document.querySelector('.news-modal-text').innerHTML = news.content;
+            const n = newsData[newsId];
+            if (!n) return;
+            document.querySelector('.news-modal-title').textContent = n.title;
+            document.querySelector('.news-modal-date').textContent = n.date;
+            document.querySelector('.news-modal-category').textContent = n.category;
+            document.querySelector('.news-modal-image').style.backgroundImage = `url('${n.image}')`;
+            document.querySelector('.news-modal-text').innerHTML = n.content;
             newsModal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -2662,18 +2441,12 @@
             document.body.style.overflow = '';
         }
 
-        newsCards.forEach(card => {
+        document.querySelectorAll('.news-card').forEach(card => {
             card.addEventListener('click', (e) => {
                 if (e.target.classList.contains('news-link')) e.preventDefault();
-                const newsId = card.getAttribute('data-news');
-                openNewsModal(newsId);
+                openNewsModal(card.dataset.news);
             });
         });
-
-        document.querySelectorAll('.news-link').forEach(link => {
-            link.addEventListener('click', (e) => e.preventDefault());
-        });
-
         newsModalClose.addEventListener('click', closeNewsModal);
         newsModal.addEventListener('click', (e) => {
             if (e.target.classList.contains('news-modal-overlay')) closeNewsModal();
@@ -2681,6 +2454,80 @@
         document.addEventListener('keydown', (e) => {
             if (newsModal.classList.contains('active') && e.key === 'Escape') closeNewsModal();
         });
+
+        // ========== LIGHTBOX ==========
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxCaption = document.getElementById('lightboxCaption');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const lightboxPrev = document.getElementById('lightboxPrev');
+        const lightboxNext = document.getElementById('lightboxNext');
+        let currentImageIndex = 0;
+        const totalImages = galleryItems.length;
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            updateLightbox();
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function updateLightbox() {
+            const item = galleryItems[currentImageIndex];
+            lightboxImage.src = item.src;
+            lightboxImage.alt = item.title;
+            lightboxCaption.textContent = item.title;
+            lightboxCounter.textContent = `${currentImageIndex + 1} / ${totalImages}`;
+        }
+
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % totalImages;
+            updateLightbox();
+        }
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + totalImages) % totalImages;
+            updateLightbox();
+        }
+
+        document.querySelectorAll('.gallery-item').forEach((item, idx) => {
+            item.addEventListener('click', () => openLightbox(idx));
+        });
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxNext.addEventListener('click', nextImage);
+        lightboxPrev.addEventListener('click', prevImage);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            else if (e.key === 'ArrowRight') nextImage();
+            else if (e.key === 'ArrowLeft') prevImage();
+        });
+
+        // ========== CONTAGEM REGRESSIVA ==========
+        function updateCountdown() {
+            const finalDate = new Date('February 20, 2026 14:45:00').getTime();
+            const now = new Date().getTime();
+            const distance = finalDate - now;
+            const countdownEl = document.getElementById('countdown');
+            if (distance < 0) {
+                countdownEl.innerHTML = "O jogo já começou! 🏆";
+                return;
+            }
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            countdownEl.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+        setInterval(updateCountdown, 1000);
 
         // ========== NAVEGAÇÃO ==========
         const navbar = document.getElementById('navbar');
@@ -2692,14 +2539,12 @@
             navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
         });
-
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
                 navToggle.classList.remove('active');
             });
         });
-
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 100) navbar.classList.add('scrolled');
             else navbar.classList.remove('scrolled');
@@ -2734,111 +2579,26 @@
             });
         });
 
-        // ========== LIGHTBOX ==========
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImage = document.getElementById('lightboxImage');
-        const lightboxCaption = document.getElementById('lightboxCaption');
-        const lightboxCounter = document.getElementById('lightboxCounter');
-        const lightboxClose = document.getElementById('lightboxClose');
-        const lightboxPrev = document.getElementById('lightboxPrev');
-        const lightboxNext = document.getElementById('lightboxNext');
-        let currentImageIndex = 0;
-        const galleryData = Array.from(galleryItems).map(item => ({
-            src: item.querySelector('.gallery-image').style.backgroundImage.slice(5, -2),
-            title: item.querySelector('.gallery-title').textContent
-        }));
-        const totalImages = galleryData.length;
-
-        function openLightbox(index) {
-            currentImageIndex = index;
-            updateLightbox();
-            lightbox.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeLightbox() {
-            lightbox.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        function updateLightbox() {
-            const data = galleryData[currentImageIndex];
-            lightboxImage.src = data.src;
-            lightboxCaption.textContent = data.title;
-            lightboxCounter.textContent = `${currentImageIndex + 1} / ${totalImages}`;
-        }
-
-        function nextImage() {
-            currentImageIndex = (currentImageIndex + 1) % totalImages;
-            updateLightbox();
-        }
-        function prevImage() {
-            currentImageIndex = (currentImageIndex - 1 + totalImages) % totalImages;
-            updateLightbox();
-        }
-
-        galleryItems.forEach((item, index) => {
-            item.addEventListener('click', () => openLightbox(index));
-        });
-
-        lightboxClose.addEventListener('click', closeLightbox);
-        lightboxNext.addEventListener('click', nextImage);
-        lightboxPrev.addEventListener('click', prevImage);
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeLightbox();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (lightbox.classList.contains('active')) {
-                if (e.key === 'Escape') closeLightbox();
-                else if (e.key === 'ArrowRight') nextImage();
-                else if (e.key === 'ArrowLeft') prevImage();
-            }
-        });
-
         // ========== BOTÕES DE ROLAGEM HORIZONTAL ==========
-        const playersGrid = document.getElementById('playersGrid');
-        const playersScrollLeft = document.getElementById('playersScrollLeft');
-        const playersScrollRight = document.getElementById('playersScrollRight');
-        const galleryGrid = document.getElementById('galleryGrid');
-        const galleryScrollLeft = document.getElementById('galleryScrollLeft');
-        const galleryScrollRight = document.getElementById('galleryScrollRight');
-
         function scrollLeft(element) { if (element) element.scrollBy({ left: -300, behavior: 'smooth' }); }
         function scrollRight(element) { if (element) element.scrollBy({ left: 300, behavior: 'smooth' }); }
 
-        playersScrollLeft?.addEventListener('click', () => scrollLeft(playersGrid));
-        playersScrollRight?.addEventListener('click', () => scrollRight(playersGrid));
-        galleryScrollLeft?.addEventListener('click', () => scrollLeft(galleryGrid));
-        galleryScrollRight?.addEventListener('click', () => scrollRight(galleryGrid));
-
-        // ========== CONTADOR REGRESSIVO ==========
-        function updateCountdown() {
-            const finalDate = new Date('February 20, 2026 14:45:00').getTime();
-            const now = new Date().getTime();
-            const distance = finalDate - now;
-            if (distance < 0) {
-                document.getElementById('countdown').innerHTML = "O jogo já começou! 🏆";
-                return;
-            }
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            document.getElementById('countdown').innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-        }
-        setInterval(updateCountdown, 1000);
+        document.getElementById('playersScrollLeft')?.addEventListener('click', () => scrollLeft(playersGrid));
+        document.getElementById('playersScrollRight')?.addEventListener('click', () => scrollRight(playersGrid));
+        document.getElementById('galleryScrollLeft')?.addEventListener('click', () => scrollLeft(galleryGrid));
+        document.getElementById('galleryScrollRight')?.addEventListener('click', () => scrollRight(galleryGrid));
 
         // ========== BOTÃO VOLTAR AO TOPO ==========
         const scrollTopBtn = document.createElement('button');
         scrollTopBtn.className = 'scroll-to-top';
         scrollTopBtn.innerHTML = '↑';
+        scrollTopBtn.setAttribute('aria-label', 'Voltar ao topo');
         scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-        window.addEventListener('scroll', () => {
-            scrollTopBtn.style.opacity = window.pageYOffset > 500 ? '1' : '0';
-            scrollTopBtn.style.transform = window.pageYOffset > 500 ? 'scale(1)' : 'scale(0.8)';
-        });
         document.body.appendChild(scrollTopBtn);
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 500) scrollTopBtn.classList.add('visible');
+            else scrollTopBtn.classList.remove('visible');
+        });
 
         // ========== ANIMAÇÕES DE ENTRADA ==========
         const observer = new IntersectionObserver((entries) => {
@@ -2850,7 +2610,7 @@
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        document.querySelectorAll('.activity-card, .event-item, .news-card, .mvv-card, .gallery-item, .statement-card').forEach(el => {
+        document.querySelectorAll('.activity-card, .event-item, .news-card, .mvv-card, .gallery-item, .statement-card, .testimonial-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
@@ -2858,10 +2618,8 @@
         });
 
         // ========== INICIALIZAÇÃO ==========
-        document.addEventListener('DOMContentLoaded', () => {
-            highlightNavigation();
-            updateCountdown();
-        });
+        highlightNavigation();
+        updateCountdown();
     </script>
 </body>
 </html>
