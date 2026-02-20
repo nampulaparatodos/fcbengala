@@ -1581,6 +1581,213 @@
             z-index: 999;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
+        /* ===== DECLARAÇÕES E ANTEVISÃO ===== */
+.statements {
+    padding: var(--spacing-xl) 0;
+    background: white;
+}
+.section-subtitle {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-top: -0.5rem;
+}
+.preview-card {
+    background: linear-gradient(135deg, var(--accent-light), #e6f3ff);
+    border-radius: 24px;
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 10px 30px rgba(106, 176, 222, 0.2);
+}
+.preview-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+}
+.preview-badge {
+    background: var(--accent);
+    color: var(--primary-dark);
+    padding: 0.3rem 1rem;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.preview-header h3 {
+    color: var(--primary-dark);
+    margin: 0;
+    font-size: 1.6rem;
+}
+.preview-content {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+.coach-statement {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+}
+.statement-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid white;
+    box-shadow: 0 4px 15px var(--shadow);
+    flex-shrink: 0;
+    background: var(--accent-light);
+}
+.statement-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.statement-bubble {
+    background: white;
+    padding: var(--spacing-md);
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 5px 20px var(--shadow);
+}
+.statement-bubble::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 20px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid white;
+}
+.statement-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+    font-style: italic;
+}
+.statement-meta strong {
+    display: block;
+    color: var(--primary-dark);
+}
+.statement-meta span {
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+.preview-stats {
+    display: flex;
+    gap: var(--spacing-md);
+    background: rgba(255,255,255,0.6);
+    padding: var(--spacing-md);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+}
+.preview-stats .stat {
+    text-align: center;
+    min-width: 70px;
+}
+.preview-stats .stat-value {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--primary-dark);
+    font-family: var(--font-display);
+}
+.preview-stats .stat-label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+}
+
+.statements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-md);
+}
+.statement-card {
+    background: var(--background-light);
+    border-radius: 16px;
+    padding: var(--spacing-md);
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+.statement-card:hover {
+    background: white;
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow);
+}
+.statement-card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+.statement-card-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--accent-light);
+    border: 2px solid var(--accent);
+}
+.statement-card-author h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.1rem;
+    color: var(--primary-dark);
+}
+.statement-card-author span {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+.statement-card-body p {
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.6;
+}
+.statement-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    padding-top: var(--spacing-sm);
+    font-size: 0.8rem;
+}
+.statement-date {
+    color: var(--text-light);
+}
+.statement-tag {
+    background: var(--accent-light);
+    color: var(--primary-dark);
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    .preview-content {
+        grid-template-columns: 1fr;
+    }
+    .preview-stats {
+        justify-content: center;
+    }
+    .coach-statement {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .statement-bubble::before {
+        display: none;
+    }
+}
     </style>
 </head>
 <body>
@@ -2329,7 +2536,163 @@
             </div>
         </div>
     </section>
+<!-- ===== DECLARAÇÕES E ANTEVISÃO ===== -->
+<section id="declaracoes" class="statements">
+    <div class="container">
+        <div class="section-header centered">
+            <span class="section-label">Vozes do Bengala</span>
+            <h2 class="section-title">Declarações & Antevisão</h2>
+            <p class="section-subtitle">O que dizem os protagonistas dentro e fora de campo</p>
+        </div>
 
+        <!-- Antevisão do próximo jogo (destaque) -->
+        <div class="preview-card">
+            <div class="preview-header">
+                <span class="preview-badge">⚽ Antevisão</span>
+                <h3>Bengala vs Trovoada FC – Final da Super Taça</h3>
+            </div>
+            <div class="preview-content">
+                <div class="coach-statement">
+                    <div class="statement-avatar">
+                        <img src="Treinador.png" alt="Janfar" onerror="this.src='logo.png'">
+                    </div>
+                    <div class="statement-bubble">
+                        <p class="statement-text">“São duas equipas, supostamente as melhores da vila. Estou muito entusiasmado em terminar bem nesta final. Eles têm um pouco do nosso estilo de jogo, mas no Tiki-Taka somos superiores. 94% dos nossos jogadores estão em jejum, mas nunca tivemos problemas. Chegámos à final com mérito. É um jogo complicado, mas totalmente possível de vencer.”</p>
+                        <div class="statement-meta">
+                            <strong>Janfar Mustafa</strong>
+                            <span>Treinador Principal</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="preview-stats">
+                    <div class="stat">
+                        <span class="stat-value">100%</span>
+                        <span class="stat-label">Foco</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">94%</span>
+                        <span class="stat-label">Jejum</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-value">⚽</span>
+                        <span class="stat-label">Final</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grade de declarações -->
+        <div class="statements-grid">
+            <!-- Declaração 1 - Jogador -->
+            <div class="statement-card">
+                <div class="statement-card-header">
+                    <div class="statement-card-avatar" style="background-image: url('AldeLuciano.png');"></div>
+                    <div class="statement-card-author">
+                        <h4>Alde Luciano</h4>
+                        <span>Médio | 17 anos</span>
+                    </div>
+                </div>
+                <div class="statement-card-body">
+                    <p>“Jogar no Bengala é mais que futebol. É aprender a ser homem, a respeitar e a lutar pelos sonhos. O clube é a minha segunda família. Estamos focados para trazer esse troféu para casa.”</p>
+                </div>
+                <div class="statement-card-footer">
+                    <span class="statement-date">19 Fevereiro 2026</span>
+                    <span class="statement-tag">#SuperTaça</span>
+                </div>
+            </div>
+
+            <!-- Declaração 2 - Diretor Desportivo -->
+            <div class="statement-card">
+                <div class="statement-card-header">
+                    <div class="statement-card-avatar" style="background-image: url('desportivo.jpeg');"></div>
+                    <div class="statement-card-author">
+                        <h4>Ramadane Buana Chale</h4>
+                        <span>Director Desportivo</span>
+                    </div>
+                </div>
+                <div class="statement-card-body">
+                    <p>“O trabalho social que o clube desenvolve na comunidade é incrível. Ver as crianças com material escolar e sorrisos no rosto não tem preço. Queremos expandir este projecto a mais bairros.”</p>
+                </div>
+                <div class="statement-card-footer">
+                    <span class="statement-date">10 Fevereiro 2026</span>
+                    <span class="statement-tag">#AcçãoSocial</span>
+                </div>
+            </div>
+
+            <!-- Declaração 3 - Jogador (revelação) -->
+            <div class="statement-card">
+                <div class="statement-card-header">
+                    <div class="statement-card-avatar" style="background-image: url('Ernesto.jpg');"></div>
+                    <div class="statement-card-author">
+                        <h4>Ernesto Eusebio</h4>
+                        <span>Avançado | 17 anos</span>
+                    </div>
+                </div>
+                <div class="statement-card-body">
+                    <p>“O meu golo na meia-final foi dedicado à minha mãe e a todos os que acreditam em mim. O Janfar dá-nos muita confiança. Na final vamos dar tudo.”</p>
+                </div>
+                <div class="statement-card-footer">
+                    <span class="statement-date">18 Fevereiro 2026</span>
+                    <span class="statement-tag">#Golo</span>
+                </div>
+            </div>
+
+            <!-- Declaração 4 - Treinador Adjunto -->
+            <div class="statement-card">
+                <div class="statement-card-header">
+                    <div class="statement-card-avatar" style="background-image: url('IMG-20260216-WA0020.jpg');"></div>
+                    <div class="statement-card-author">
+                        <h4>Zito Carlitos Veloso</h4>
+                        <span>Treinador Adjunto</span>
+                    </div>
+                </div>
+                <div class="statement-card-body">
+                    <p>“Temos um grupo unido e talentoso. O segredo é o trabalho diário e acreditar nos jovens. Esta final é o coroamento de um excelente trabalho de base.”</p>
+                </div>
+                <div class="statement-card-footer">
+                    <span class="statement-date">15 Fevereiro 2026</span>
+                    <span class="statement-tag">#Formação</span>
+                </div>
+            </div>
+
+            <!-- Declaração 5 - Presidente (visão) -->
+            <div class="statement-card">
+                <div class="statement-card-header">
+                    <div class="statement-card-avatar" style="background-image: url('logo.png');"></div>
+                    <div class="statement-card-author">
+                        <h4>Mario Alberto</h4>
+                        <span>Presidente</span>
+                    </div>
+                </div>
+                <div class="statement-card-body">
+                    <p>“O nosso objectivo não é apenas ganhar jogos, mas formar cidadãos. Queremos que o Bengala seja um exemplo de inclusão e desenvolvimento em Nampula.”</p>
+                </div>
+                <div class="statement-card-footer">
+                    <span class="statement-date">5 Fevereiro 2026</span>
+                    <span class="statement-tag">#Visão</span>
+                </div>
+            </div>
+
+            <!-- Declaração 6 - Jogador (experiência) -->
+            <div class="statement-card">
+                <div class="statement-card-header">
+                    <div class="statement-card-avatar" style="background-image: url('wilson.jpeg');"></div>
+                    <div class="statement-card-author">
+                        <h4>Wilson Mutarua</h4>
+                        <span>Defesa Central</span>
+                    </div>
+                </div>
+                <div class="statement-card-body">
+                    <p>“Já estou no clube há três anos e vi a evolução de muitos miúdos. Hoje somos uma família e vamos para a final com a alma cheia.”</p>
+                </div>
+                <div class="statement-card-footer">
+                    <span class="statement-date">12 Fevereiro 2026</span>
+                    <span class="statement-tag">#Experiência</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <!-- Notícias -->
     <section id="noticias" class="news">
         <div class="container">
@@ -2413,6 +2776,7 @@
             </div>
         </div>
     </div>
+    
 
     <!-- Contacto -->
     <section id="contacto" class="contact">
