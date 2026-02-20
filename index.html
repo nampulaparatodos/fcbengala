@@ -1578,6 +1578,74 @@
 
         /* ===== ANIMAÇÕES ===== */
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        /* ===== DEPOIMENTOS ===== */
+.testimonials {
+    padding: var(--spacing-xl) 0;
+    background: var(--background-light);
+}
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+}
+.testimonial-card {
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: 16px;
+    position: relative;
+    transition: var(--transition);
+    box-shadow: 0 4px 20px var(--shadow);
+    height: auto;                /* altura ajustável pelo conteúdo */
+    overflow: visible;           /* garante que nada seja cortado */
+}
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px var(--shadow-strong);
+}
+.testimonial-quote {
+    font-size: 3rem;
+    color: var(--accent);
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-family: serif;
+}
+.testimonial-text {
+    font-style: italic;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-secondary);
+    line-height: 1.7;
+    word-break: break-word;      /* quebra palavras longas se necessário */
+    white-space: normal;          /* garante quebra de linha */
+}
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    border-top: 1px solid var(--border);
+    padding-top: var(--spacing-sm);
+}
+.author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--accent-light);
+    border: 2px solid var(--accent);
+    flex-shrink: 0;
+}
+.author-info h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+    color: var(--primary-dark);
+}
+.author-info p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin: 0;
+}
     </style>
 </head>
 <body>
